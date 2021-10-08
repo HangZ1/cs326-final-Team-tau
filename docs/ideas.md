@@ -1,4 +1,5 @@
-Team Tau
+**Team Tau**
+
 The application name: the pc building assistant
 Name: Guanxu Zhou(MikaIcarus), Hang Zheng(HangZ1), Yuchen Liu(3TH4N)
 
