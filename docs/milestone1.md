@@ -22,5 +22,5 @@ When the submit button is clicked, the application will display a list of PC tha
 ToDo
 
 # Division of labor
-
+Guanxu Zhou is responsible for Homepage. Hang Zheng works on sign-in sign-up page.
 ToDo
