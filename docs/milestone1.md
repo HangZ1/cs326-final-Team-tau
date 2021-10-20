@@ -16,3 +16,11 @@ When a component is clicked, the board will stretch and show all the data corres
 When the submit button is clicked, the application will display a list of PC that match the user input, and the user can clicked on one of them to sretch and diplay more detail
 ![untitled - Window@1 25x (3)](https://user-images.githubusercontent.com/89880421/138156130-f7e25190-1e57-4fbb-a62f-45b4fa0b0e53.png)
 
+
+# Part 2: HTML and CSS
+
+ToDo
+
+# Division of labor
+
+ToDo
