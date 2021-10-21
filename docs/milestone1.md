@@ -4,7 +4,7 @@ The user will be asked to sign up an account before assessing our feature, and w
 
 # Part 1: Wireframes
 
-The home page where the user is asked for a varius of input:
+The home page is responsible for introduction and users' sign-in and sign-up.
 ![untitled - Window@1 25x](https://user-images.githubusercontent.com/89880421/138152235-ca1fb262-a534-4f3f-ad5a-4795b677862e.png)
 
 When the icon on the left is clicked, it will asked the user to sign up or sign in into an account. If the user is signed in, the shopping cart will displayed, which shows the various of component the user has added so far, the user can add a new page to start a empty cart by going to the next page:
