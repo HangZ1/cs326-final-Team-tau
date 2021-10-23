@@ -23,13 +23,13 @@ When the submit button is clicked, the application will display a list of PC tha
 Signin page:
 ![Screenshot (23)](https://user-images.githubusercontent.com/89880421/138567186-9111b939-c89f-4290-9da9-e89d79358013.png)
 Signup page:
-![03837570d9575572e1962852767409b](https://user-images.githubusercontent.com/89880421/138574764-a7369293-230d-4c09-ad9d-473d7cd471d8.png)
+![62fc1c62764258be624f5c3d57b31b7](https://user-images.githubusercontent.com/89880421/138574767-0c129b5f-3755-473b-8b65-a8acef75660f.png)
 Homepage:
 ![image](https://user-images.githubusercontent.com/71961368/138569338-8b1f38a1-7e9c-4aac-8a18-ae4e645e9d3a.png)
 Select Page:
 ![image](https://user-images.githubusercontent.com/71961368/138569343-bd205c73-2bb9-4ee0-afd1-6179360e797c.png)
 Shopping cart page:
-![62fc1c62764258be624f5c3d57b31b7](https://user-images.githubusercontent.com/89880421/138574767-0c129b5f-3755-473b-8b65-a8acef75660f.png)
+![03837570d9575572e1962852767409b](https://user-images.githubusercontent.com/89880421/138574764-a7369293-230d-4c09-ad9d-473d7cd471d8.png)
 Output Page:
 ![1635018680(1)](https://user-images.githubusercontent.com/89880421/138569637-652bd1f6-9be5-47c8-9e2b-596696d29c05.png)
 
