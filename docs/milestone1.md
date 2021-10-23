@@ -21,7 +21,8 @@ When the submit button is clicked, the application will display a list of PC tha
 # Part 2: HTML and CSS
 
 Signin page:
-![Screenshot (21)](https://user-images.githubusercontent.com/89880421/138566620-ef70ba4d-bef2-4a49-9fb6-7df42f4306e8.png)
+![Screenshot (23)](https://user-images.githubusercontent.com/89880421/138567186-9111b939-c89f-4290-9da9-e89d79358013.png)
+
 
 
 
