@@ -26,6 +26,8 @@ Homepage:
 ![image](https://user-images.githubusercontent.com/71961368/138569338-8b1f38a1-7e9c-4aac-8a18-ae4e645e9d3a.png)
 Select Page:
 ![image](https://user-images.githubusercontent.com/71961368/138569343-bd205c73-2bb9-4ee0-afd1-6179360e797c.png)
+Output Page:
+![1635018680(1)](https://user-images.githubusercontent.com/89880421/138569637-652bd1f6-9be5-47c8-9e2b-596696d29c05.png)
 
 
 
