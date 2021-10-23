@@ -1,0 +1,48 @@
+body{
+    background-color: #F0F8FF;
+}
+
+img{
+    height: 150px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav{
+    position: absolute;
+    bottom: 5px;
+    left: 40%;
+}
+
+h6{
+    padding:20px;
+    font-family: Georgia, Serif;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.container{
+    padding-top: 20px;
+}
+
+.card {
+    height: 400px;
+    width: 300px;
+    background-color: #badce3;
+}
+
+
+.button1{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.button2{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
