@@ -8,6 +8,7 @@ The home page is responsible for introduction, finding the prior plans, and user
 ![untitled - Window@1 25x](https://user-images.githubusercontent.com/89880421/138152235-ca1fb262-a534-4f3f-ad5a-4795b677862e.png)
 
 When the icon on the left is clicked, it will asked the user to sign up or sign in into an account. If the user is signed in, the shopping cart will displayed, which shows the various of component the user has added so far, the user can add a new page to start a empty cart by going to the next page:
+![untitled - Window@1 25x](https://user-images.githubusercontent.com/89880421/138566659-700d74d1-7380-4331-81dc-e4c269acdabf.png)
 ![untitled - Window@1 25x (1)](https://user-images.githubusercontent.com/89880421/138154308-34794b76-3019-42d9-a813-4d8fbf7416b3.png)
 
 When a component is clicked, the board will stretch and show all the data corresponding to that component.
@@ -19,8 +20,12 @@ When the submit button is clicked, the application will display a list of PC tha
 
 # Part 2: HTML and CSS
 
-ToDo
+Signin page:
+![Screenshot (21)](https://user-images.githubusercontent.com/89880421/138566620-ef70ba4d-bef2-4a49-9fb6-7df42f4306e8.png)
+
+
 
 # Division of labor
-Guanxu Zhou is responsible for Homepage. Hang Zheng works on sign-in sign-up page.
-ToDo
+Guanxu Zhou is responsible for Homepage and user input page 
+Hang Zheng is responsible for sign-in and the output page.
+Yuchen Liu is responsible for sign-up page and shopping cart
