@@ -3,27 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Make your choice</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="InputAndHomepage.css">
+    <title>ShoppingCart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="SignUp&ShoppingCart.css">
+
 
 </head>
-<body>
+<body class = "container">
 
 <div class="fixed-top">
     <div class = "row">
-        <div class="col p-1 bg-dark ">
-            <div class="dropdown">
-                <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
-                    <span class="bi bi-arrow-bar-down"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"><span class="bi bi-save"></span>  Your plans</a></li>
-                    <li><a class="dropdown-item" href="#"><span class="bi bi-exclamation-circle"></span>   About</a></li>
-                </ul>
-            </div>
-        </div>
+        <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark">
             <button class="btn btn-dark">PC Building Helper</button>
         </div>
@@ -34,14 +24,64 @@
         <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark "></div>
-        <div class="col p-1 bg-dark ">
-            <button class="btn btn-primary"><span class="bi bi-person"></span> Sign in</button>
-        </div>
+        <div class="col p-1 bg-dark "><button class="btn btn-primary"><span class="bi bi-person"></span> Sign in</button></div>
     </div>
 </div>
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<div class="row">
+<div class="col">
+    <img src="https://www.corsair.com/medias/sys_master/images/images/h7d/h0c/9784028528670/CS-9040010-PE/Gallery/CORSAIR_ONE_PRO_a200_01/-CS-9040010-PE-Gallery-CORSAIR-ONE-PRO-a200-01.png_515Wx515H" alt="" class="shoppingCartImg">
+</div>
+<div class="col">
+    <img src="https://www.corsair.com/medias/sys_master/images/images/h7d/h0c/9784028528670/CS-9040010-PE/Gallery/CORSAIR_ONE_PRO_a200_01/-CS-9040010-PE-Gallery-CORSAIR-ONE-PRO-a200-01.png_515Wx515H" alt="" class="shoppingCartImg" >
+</div>
+<div class="col">
+    <h1>Shopping Cart</h1>
+    <form>
+        <div class="form-group pb-3 pt-3">
+            <label for = "processor">Processor</label>
+            <input class = "form-control" id="processor" placeholder = "Enter processor you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "motherBoard">MotherBoard</label>
+            <input class = "form-control" id="motherBoard" placeholder = "Enter motherboard you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "graphicCard">Graphic Card</label>
+            <input class = "form-control" id="graphicCard" placeholder = "Enter graphic card you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "memory">Memory</label>
+            <input class = "form-control" id="memory" placeholder = "Enter memory you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "storage">Storage</label>
+            <input class = "form-control" id="storage" placeholder = "Enter storage you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "pcCase">Pc Case</label>
+            <input class = "form-control" id="pcCase" placeholder = "Enter Pc Case you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "powerSupply">Power Supply</label>
+            <input class = "form-control" id="powerSupply" placeholder = "Enter Power Supply you want" />
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "cpuCooler">Cpu Cooler</label>
+            <input class = "form-control" id="cpuCooler" placeholder = "Enter Cpu Cooler you want" />
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+</div>
 
 </body>
 </html>
