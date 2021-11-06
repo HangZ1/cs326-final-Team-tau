@@ -54,7 +54,7 @@ app.post('/Register', (req, res) =>{
         userLoginData[userName] = password;
         fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
         console.log(`Set ${userName} to ${password}`);
-        res.send('Regist');
+        res.send('Registed');
     }
     else{
         res.send('this username already exists');
