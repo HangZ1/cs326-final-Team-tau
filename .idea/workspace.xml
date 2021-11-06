@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ca0b1f25-5c67-4ad5-87d9-92bcfa2812f2" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Select.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 6dd7e77756e4a63466392d8f173406797cc22a5c
       <change beforePath="$PROJECT_DIR$/Server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +22,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
         <option value="HTML File" />
         <option value="JavaScript File" />
+=======
+        <option value="package.json" />
+>>>>>>> 6dd7e77756e4a63466392d8f173406797cc22a5c
       </list>
     </option>
   </component>
@@ -32,6 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -46,14 +59,29 @@
       <method v="2" />
     </configuration>
     <configuration name="Select.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Client/Select.js" working-dir="$PROJECT_DIR$/Client">
+=======
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Server/server.js" working-dir="$PROJECT_DIR$/Server">
+>>>>>>> 6dd7e77756e4a63466392d8f173406797cc22a5c
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="JavaScript Debug.Select.html" />
         <item itemvalue="JavaScript Debug.Output_page.html" />
         <item itemvalue="Node.js.Select.js" />
         <item itemvalue="JavaScript Debug.Homepage.html" />
+=======
+        <item itemvalue="Node.js.server.js" />
+>>>>>>> 6dd7e77756e4a63466392d8f173406797cc22a5c
       </list>
     </recent_temporary>
   </component>
@@ -67,7 +95,12 @@
       <updated>1635020261410</updated>
       <workItem from="1635020263381" duration="48000" />
       <workItem from="1636149053467" duration="323000" />
+<<<<<<< HEAD
       <workItem from="1636161675744" duration="10281000" />
+=======
+      <workItem from="1636164410414" duration="1348000" />
+      <workItem from="1636170760106" duration="1258000" />
+>>>>>>> 6dd7e77756e4a63466392d8f173406797cc22a5c
     </task>
     <servers />
   </component>
