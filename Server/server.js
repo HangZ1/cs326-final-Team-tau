@@ -42,7 +42,7 @@ app.post('/Register', (req, res) =>{
     userLoginData[userName] = password;
     fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
     console.log(`Set ${userName} to ${password}`);
-    res.send('Set.');
+    res.send('Regist');
 });
 
 app.get('/getPC/:component', (req, res) => {
@@ -63,7 +63,7 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
     userPcData[req.body.name] = pcSet;
     fs.writeFileSync(PcDataFile,JSON.stringify(userPcData));
     console.log(`Set ${userName} to ${password}`);
-    res.send('Set.');
+    res.send('Already add to the cart.');
 });
 
 app.get('/getShoppingCart/:user', (req, res) =>{
