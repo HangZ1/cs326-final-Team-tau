@@ -54,7 +54,7 @@ app.post('/Register', (req, res) =>{
         userLoginData[userName] = password;
         fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
         console.log(`Set ${userName} to ${password}`);
-        res.send('Registed');
+        res.send('Regist');
     }
     else{
         res.send('this username already exists');
@@ -63,7 +63,7 @@ app.post('/Register', (req, res) =>{
 
 app.get('/getPC/:component', (req, res) => {
     //TODO
-    let component = {"processor":"1","motherBoard":"2","graphiccard":"3","memory":"4","storage":"5","pccase":"6","powersupply":"7","cpucooler":"8"};
+    let component = {"processor":"processor from server","motherBoard":"motherBoard from server","graphiccard":"graphiccard from server","memory":"memory from server","storage":"storage from server","pccase":"PC case from server","powersupply":"power supply from server","cpucooler":"cooler from server"};
     res.send(component);
 });
 
