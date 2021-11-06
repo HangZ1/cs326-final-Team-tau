@@ -2,6 +2,9 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
+const cors = require("cors");
+app.use(cors());
+
 const LoginDataFile = 'LoginDataFile.json';
 const PcDataFile = 'PcDataFile.json';
 app.use(express.json());
@@ -11,28 +14,25 @@ const userLoginData = {};
 const userPcData = {};
 
 
+
+
 app.get('/', (req, res) => {
     res.sendFile(path.resolve('./client/Homepage.html'));
 });
-app.post('/Login', (req, res) => {
-    //TODO
-    if(fs.readFileSync(LoginDataFile)){
-        const username = req.body.name;
-        const password = req.body.password;
-        const file = JSON.parse(fs.readFileSync(LoginDataFile));
-        if(file[username] === password){
-            console.log("You Login~!");
-            login_status = true;
-        }
-        else{
-            console.log("Username or password is not correct.");
+
+app.get('/Login', (req, res) => {
+    let userName= req.query.name;
+    let password= req.query.password;
+    if(!(userName in userLoginData)){
+        res.send("userName not found");
+    }else{
+        if(userLoginData[userName] !== password){
+            console.log(password);
+            res.send("incorrect password");
+        }else{
+            res.send("login");
         }
     }
-    else{
-        console.log('really? no users?')
-    }
-
-
 });
 
 app.post('/Register', (req, res) =>{
@@ -67,7 +67,8 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
 });
 
 app.get('/getShoppingCart/:user', (req, res) =>{
-    //TODO
+    let userName = req.query.name;
+    res.send(PcDataFile[userName]);
 })
 
 app.get('*', (request, response) => {

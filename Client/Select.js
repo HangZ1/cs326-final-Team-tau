@@ -8,19 +8,10 @@ document.getElementById("About").addEventListener('click',() => {
     //window.location.href = 'About.html';
 })
 
-let login_status = window.login_status;
-if(login_status){
-    document.getElementById("Your plans").addEventListener('click',() => {
-        window.location.href = 'ShoppingCart.html';
-    })
-    document.getElementById("Build").addEventListener('click',() => {
-        window.location.href = 'Output_page.html';
-    })
-} else{
-    document.getElementById("Your plans").addEventListener('click',() => {
-        alert("You need to sign in first");
-    })
-    document.getElementById("Build").addEventListener('click',() => {
-        alert("You need to sign in first");
-    })
-}
+
+document.getElementById("Your plans").addEventListener('click',() => {
+    window.location.href = 'ShoppingCart.html';
+})
+document.getElementById("Build").addEventListener('click',() => {
+    window.location.href = 'Output_page.html';
+})
