@@ -10,8 +10,19 @@ const PcDataFile = 'PcDataFile.json';
 app.use(express.json());
 
 const port = 8080;
-const userLoginData = {};
-const userPcData = {};
+let userLoginData = {};
+let userPcData = {};
+
+if(fs.existsSync(LoginDataFile)) {
+    userLoginData = JSON.parse(fs.readFileSync(LoginDataFile));
+}
+else {userLoginData = {};}
+
+
+if(fs.existsSync(PcDataFile)) {
+    userPcData = JSON.parse(fs.readFileSync(PcDataFile));
+}
+else {userPcData = {};}
 
 
 
@@ -39,10 +50,15 @@ app.post('/Register', (req, res) =>{
     //by Yuchen Liu
     let userName = req.body.name;
     let password = req.body.password;
-    userLoginData[userName] = password;
-    fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
-    console.log(`Set ${userName} to ${password}`);
-    res.send('Regist');
+    if(userLoginData[userName] === undefined){
+        userLoginData[userName] = password;
+        fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
+        console.log(`Set ${userName} to ${password}`);
+        res.send('Regist');
+    }
+    else{
+        res.send('this username already exists');
+    }
 });
 
 app.get('/getPC/:component', (req, res) => {
