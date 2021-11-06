@@ -1,7 +1,8 @@
-document.getElementById("cart").addEventListener('click', () => {
+
+document.getElementById("shopping_cart").addEventListener('click', () => {
     window.location.href = 'ShoppingCart.html';
 })
 
-document.getElementById("redo").addEventListener("click", () => {
+document.getElementById("back_select").addEventListener("click", () => {
     window.location.href = "Select.html"
 })

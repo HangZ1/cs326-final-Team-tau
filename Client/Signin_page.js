@@ -7,6 +7,7 @@ async function Login_status(n, p){
         const responseTEXT = await response.text();
         if(responseTEXT === "login") {
             window.login_status= true;
+            alert("you just signed in");
             return login_status;
         }else{
             alert(responseTEXT);
@@ -33,7 +34,6 @@ document.getElementById("sign_in_button").addEventListener('click', () => {
     }else{
         if(Login_status(Uname, Pword)){
             window.location.href = 'Homepage.html';
-            alert("you just signed in");
         }
     }
 });

@@ -11,40 +11,59 @@
 <h3>Result:</h3>
 <div class="row">
     <div class ='col'>
-        <img src="https://www.corsair.com/medias/sys_master/images/images/h7d/h0c/9784028528670/CS-9040010-PE/Gallery/CORSAIR_ONE_PRO_a200_01/-CS-9040010-PE-Gallery-CORSAIR-ONE-PRO-a200-01.png_515Wx515H" alt="">
-        <div class ='card mx-auto'>
+        <div class ='card'>
             <h6>Performance: xxxxxxxxxxxxxxxxxxxxx</h6>
             <h6>Total price: $___</h6>
-            <h6>Description: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h6>
-            <button type="button" class="btn btn-primary button1"> Add all to cart </button>
-            <button type="button" class="btn btn-warning button2"> Component </button>
+            <h6>Description: *******************************</h6>
         </div>
     </div>
-    <div class ='col'>
-        <img src="https://www.corsair.com/medias/sys_master/images/images/h7d/h0c/9784028528670/CS-9040010-PE/Gallery/CORSAIR_ONE_PRO_a200_01/-CS-9040010-PE-Gallery-CORSAIR-ONE-PRO-a200-01.png_515Wx515H" alt="">
-        <div class ='card mx-auto'>
-            <h6>Performance: xxxxxxxxxxxxxxxxxxxxx</h6>
-            <h6>Total price: $___</h6>
-            <h6>Description: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h6>
-            <button type="button" class="btn btn-primary button1"> Add all to cart </button>
-            <button type="button" class="btn btn-warning button2"> Component </button>
+    <form>
+        <div class="form-group pb-3 pt-3">
+            <label for = "processor">Processor</label>
+            <input class = "form-control" id="processor"/>
         </div>
-    </div>
-    <div class ='col'>
-        <img src="https://www.corsair.com/medias/sys_master/images/images/h7d/h0c/9784028528670/CS-9040010-PE/Gallery/CORSAIR_ONE_PRO_a200_01/-CS-9040010-PE-Gallery-CORSAIR-ONE-PRO-a200-01.png_515Wx515H" alt="">
-        <div class ='card mx-auto'>
-            <h6>Performance: xxxxxxxxxxxxxxxxxxxxx</h6>
-            <h6>Total price: $___</h6>
-            <h6>Description: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h6>
-            <button type="button" class="btn btn-primary button1"> Add all to cart </button>
-            <button type="button" class="btn btn-warning button2"> Component </button>
+        <div class="form-group pb-3 pt-3">
+            <label for = "motherBoard">MotherBoard</label>
+            <input class = "form-control" id="motherBoard" />
         </div>
-    </div>
-</div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "graphicCard">Graphic Card</label>
+            <input class = "form-control" id="graphicCard"/>
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "memory">Memory</label>
+            <input class = "form-control" id="memory"/>
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "storage">Storage</label>
+            <input class = "form-control" id="storage"/>
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "pcCase">Pc Case</label>
+            <input class = "form-control" id="pcCase"/>
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "powerSupply">Power Supply</label>
+            <input class = "form-control" id="powerSupply"/>
+        </div>
+        <div class="form-group pb-3 pt-3">
+            <label for = "cpuCooler">Cpu Cooler</label>
+            <input class = "form-control" id="cpuCooler"/>
+        </div>
 
-<nav>
-    <button type = "button" class = "btn btn-primary" id ="redo" > redo </button>
-    <button type = "button" class = "btn btn-primary" id ="cart"> shopping cart </button>
-</nav>
+        <div>
+            <button type="button" class="btn btn-primary button" id = "allToCart">Add all to cart</button>
+            <button type="button" class="btn btn-primary button" id = "back_select">Back to seletion</button>
+            <button type="button" class="btn btn-primary button" id = "shopping_cart">Shopping cart</button>
+        </div>
+        <div>
+            <ul id = "page" class="pagination">
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </ul>
+        </div>
+    </form>
+</div>
 </body>
 </html>
