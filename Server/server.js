@@ -48,13 +48,12 @@ app.get('/Login', (req, res) => {
 
 app.post('/Register', (req, res) =>{
     //by Yuchen Liu
-    let userName = req.body.name;
-    let password = req.body.password;
+    let userName = req.body['name'];
+    let password = req.body['password'];
     if(userLoginData[userName] === undefined){
         userLoginData[userName] = password;
         fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
         console.log(`Set ${userName} to ${password}`);
-        res.send('Regist');
     }
     else{
         res.send('this username already exists');
@@ -70,18 +69,17 @@ app.get('/getPC/:component', (req, res) => {
 app.post('/addtoShoppingCart/:user', (req,res) => {
     //by Yuchen Liu
     let pcSet = {};
-    pcSet.processor = req.body.processor;
-    pcSet.motherBoard = req.body.motherBoard;
-    pcSet.graphiccard = req.body.graphiccard;
-    pcSet.memory = req.body.memory;
-    pcSet.storage = req.body.storage;
-    pcSet.pccase = req.body.pccase;
-    pcSet.powersupply = req.body.powersupply;
-    pcSet.cpucooler = req.body.cpucooler;
+    pcSet.processor = req.body['processor'];
+    pcSet.motherBoard = req.body['motherBoard'];
+    pcSet.graphiccard = req.body['graphiccard'];
+    pcSet.memory = req.body['memory'];
+    pcSet.storage = req.body['storage'];
+    pcSet.pccase = req.body['pccase'];
+    pcSet.powersupply = req.body['powersupply'];
+    pcSet.cpucooler = req.body['cpucooler'];
     userPcData[req.body.name] = pcSet;
     fs.writeFileSync(PcDataFile,JSON.stringify(userPcData));
-    console.log(`Set ${userName} to ${password}`);
-    res.send('Already add to the cart.');
+    res.send('added');
 });
 
 app.get('/getShoppingCart/:user', (req, res) =>{
