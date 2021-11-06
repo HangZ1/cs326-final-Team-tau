@@ -10,8 +10,29 @@ const port = 8080;
 const userLoginData = {};
 const userPcData = {};
 
-app.get('/Login', (req, res) => {
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve('./client/Homepage.html'));
+});
+app.post('/Login', (req, res) => {
     //TODO
+    if(fs.readFileSync(LoginDataFile)){
+        const username = req.body.name;
+        const password = req.body.password;
+        const file = JSON.parse(fs.readFileSync(LoginDataFile));
+        if(file[username] === password){
+            console.log("You Login~!");
+            login_status = true;
+        }
+        else{
+            console.log("Username or password is not correct.");
+        }
+    }
+    else{
+        console.log('really? no users?')
+    }
+
+
 });
 
 app.post('/Register', (req, res) =>{
@@ -49,6 +70,13 @@ app.get('/getShoppingCart/:user', (req, res) =>{
     //TODO
 })
 
+app.get('*', (request, response) => {
+    response.send(JSON.stringify({ result : 'command-not-found' }));
+});
+
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 })
+
+
