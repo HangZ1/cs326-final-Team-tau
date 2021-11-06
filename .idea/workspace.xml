@@ -2,22 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca0b1f25-5c67-4ad5-87d9-92bcfa2812f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Homepage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InputAndHomepage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output_page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Select.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShoppingCart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SignUp&amp;ShoppingCart.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SignUp_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Signin_page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Signin_page.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/Homepage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Select.html" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,6 +36,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager" selected="JavaScript Debug.Select.html">
+    <configuration name="Homepage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SignUp_page.html/Client/Homepage.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Output_page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SignUp_page.html/Client/Output_page.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Select.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SignUp_page.html/Client/Select.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Select.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Client/Select.js" working-dir="$PROJECT_DIR$/Client">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.Select.html" />
+        <item itemvalue="JavaScript Debug.Output_page.html" />
+        <item itemvalue="Node.js.Select.js" />
+        <item itemvalue="JavaScript Debug.Homepage.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,10 +68,22 @@
       <updated>1635020261410</updated>
       <workItem from="1635020263381" duration="48000" />
       <workItem from="1636149053467" duration="323000" />
+      <workItem from="1636161675744" duration="7226000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
