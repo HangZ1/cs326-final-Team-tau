@@ -6,7 +6,7 @@ app.use(express.json());
 
 const port = 8080;
 
-app.get('/Login', (req, res) => {
+app.post('/Login', (req, res) => {
   // TODO
 });
 

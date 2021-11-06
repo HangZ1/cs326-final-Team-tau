@@ -8,7 +8,7 @@ document.getElementById("About").addEventListener('click',() => {
     //window.location.href = 'About.html';
 })
 
-let login_status = true;
+let login_status = window.login_status;
 if(login_status){
     document.getElementById("Your plans").addEventListener('click',() => {
         window.location.href = 'ShoppingCart.html';
