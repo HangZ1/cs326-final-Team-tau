@@ -11,7 +11,7 @@ document.getElementById("About").addEventListener('click',() => {
 });
 
 
-let login_status = true;
+let login_status = false;
 document.getElementById("Let's do it").addEventListener('click',() => {
     if(login_status){
         window.location.href = 'Select.html';
