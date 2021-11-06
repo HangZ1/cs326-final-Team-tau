@@ -47,6 +47,8 @@ app.post('/Register', (req, res) =>{
 
 app.get('/getPC/:component', (req, res) => {
     //TODO
+    let component = {"processor":"1","motherBoard":"2","graphiccard":"3","memory":"4","storage":"5","pccase":"6","powersupply":"7","cpucooler":"8"};
+    res.send(component);
 });
 
 app.post('/addtoShoppingCart/:user', (req,res) => {
