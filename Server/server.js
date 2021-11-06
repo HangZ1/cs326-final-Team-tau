@@ -79,12 +79,12 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
     pcSet.cpucooler = req.body['cpucooler'];
     userPcData[req.body.name] = pcSet;
     fs.writeFileSync(PcDataFile,JSON.stringify(userPcData));
-    res.send('added');
+    res.send('Already add to the cart.');
 });
 
 app.get('/getShoppingCart/:user', (req, res) =>{
     let userName = req.query.name;
-    res.send(PcDataFile[userName]);
+    res.send(userPcData[userName]);
 })
 
 app.get('*', (request, response) => {
