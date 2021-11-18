@@ -1,4 +1,18 @@
 'use strict';
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://3tham:bdm3tXWrE5LabZp@cluster0.3kbzw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+    const collection = client.db("test").collection("devices");
+    // perform actions on the collection object
+    collection.findOne({asdf});
+    // db..findOne(
+    //     { },
+    //     { name: 1, contribs: 1 }
+    // )
+    // client.close();
+    console.log("we are in");
+});
 const express = require('express');
 const fs = require('fs');
 const app = express();
