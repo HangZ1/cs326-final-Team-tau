@@ -19,17 +19,6 @@ const port = 8080;
 let userLoginData = {};
 let userPcData = {};
 
-// if(fs.existsSync(LoginDataFile)) {
-//     userLoginData = JSON.parse(fs.readFileSync(LoginDataFile));
-// }
-// else {userLoginData = {};}
-//
-//
-// if(fs.existsSync(PcDataFile)) {
-//     userPcData = JSON.parse(fs.readFileSync(PcDataFile));
-// }
-// else {userPcData = {};}
-
 
 
 
@@ -57,15 +46,13 @@ app.get('/Login', async (req, res) => {
 app.post('/Register', async (req, res) =>{
     //by Yuchen Liu
     let userName = req.body['name'];
-    let password = req.body['password'];
-    const collection = await client.db("PCComponentData").collection("CPU");
-// perform actions on the collection object
-    let a = await collection.findOne({name:'5800X'});
-    console.log('a')
-    if(userLoginData[userName] === undefined){
-        userLoginData[userName] = password;
-        fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
-        console.log(`Set ${userName} to ${password}`);
+    let passWord = req.body['password'];
+    const collection = await client.db("User").collection("ID&password");
+    let userLogin = await collection.findOne({name:userName});
+    console.log(userLogin);
+    if(userLogin === null){
+        collection.insertOne({name: userName, password: passWord})
+        res.send("Regist");
     }
     else{
         res.send('this username already exists');
