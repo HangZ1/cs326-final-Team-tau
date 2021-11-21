@@ -37,13 +37,15 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve('./client/Homepage.html'));
 });
 
-app.get('/Login', (req, res) => {
+app.get('/Login', async (req, res) => {
     let userName= req.query.name;
     let password= req.query.password;
-    if(!(userName in userLoginData)){
+    const userLoginData = await client.db("User").collection("ID&password");
+    let userLogin = await userLoginData.findOne({name:'Mike'});
+    if(userLogin === undefined){
         res.send("userName not found");
     }else{
-        if(userLoginData[userName] !== password){
+        if(userLogin.password !== password){
             console.log(password);
             res.send("incorrect password");
         }else{
