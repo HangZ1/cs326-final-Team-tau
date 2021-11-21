@@ -3,8 +3,8 @@ const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://3tham:bdm3tXWrE5LabZp@cluster0.3kbzw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-
-const path = require("path");
+const path = require('path');
+const url = require("url");
 const express = require('express');
 const fs = require('fs');
 const app = express();
@@ -35,6 +35,7 @@ let userPcData = {};
 
 app.get('/', (req, res) => {
     res.sendFile(path.resolve('/cs326-final-Team-tau/Client/Homepage.html'));
+    // res.sendFile(__dirname + "/Client/Homepage.html");
 });
 
 app.get('/Login', async (req, res) => {
@@ -78,7 +79,41 @@ app.get('/getPC/:component', async (req, res) => {
     let user = await component.findOne({"name":userName});
     res.send(user);
 });
-
+app.get('/getCPUbyCompany', async(req,res) => {
+    let company = req.query.company;
+    const Cpu = await client.db("PCComponentData").collection("CPU");
+    let getCpu = await Cpu.findOne({"company":company});
+    res.send(getCpu);
+});
+app.get('/getCPUbyCompanyAndPrice', async(req,res) => {
+    let company = req.query.company;
+    let price = req.query.price;
+    const Cpu = await client.db("PCComponentData").collection("CPU");
+    let getCpu = await Cpu.findOne({"company":company,"price":price});
+    res.send(getCpu);
+});
+app.get('/getCPUbyCompanyAndScore', async(req,res) => {
+    let company = req.query.company;
+    let score = req.query.score;
+    const Cpu = await client.db("PCComponentData").collection("CPU");
+    let getCpu = await Cpu.findOne({"company":company,'score':score });
+    res.send(getCpu);
+});
+app.get('/getGPUbyPrice', async(req,res) => {
+    let price = req.query.price;
+    let name = req.query.name;
+    const Gpu = await client.db("PCComponentData").collection("GPU");
+    let getGpu = await Gpu.findOne({"GPU":name,'PRICE':price });
+    res.send(getGpu);
+});
+app.get('/getMemory', async(req,res) => {
+    let price = req.query.price;
+    let name = req.query.name;
+    let GB = req.query.gb;
+    const M = await client.db("PCComponentData").collection("Memory");
+    let getM = await M.findOne({"name":name,'price':price,'GB':GB });
+    res.send(getM);
+});
 
 app.post('/addtoShoppingCart/:user', (req,res) => {
     //by Yuchen Liu
