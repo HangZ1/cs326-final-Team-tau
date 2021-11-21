@@ -59,13 +59,14 @@ app.post('/Register', async (req, res) =>{
     }
 });
 
+//toDO
 app.get('/getPC/:component', async (req, res) => {
-    //TODO
     let userName = req.query.name;
     const component = await client.db("User").collection("perferance");
     let user = await component.findOne({"name":userName});
     res.send(user);
 });
+
 app.get('/getCPUbyCompany', async(req,res) => {
     let company = req.query.company;
     const Cpu = await client.db("PCComponentData").collection("CPU");
@@ -102,6 +103,10 @@ app.get('/getMemory', async(req,res) => {
     res.send(getM);
 });
 
+
+
+
+//TODO
 app.post('/addtoShoppingCart/:user', (req,res) => {
     //by Yuchen Liu
     let pcSet = {};
@@ -118,9 +123,181 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
     res.send('Already add to the cart.');
 });
 
-app.get('/getShoppingCart/:user', (req, res) =>{
+
+async function getUserPreference(preference, userName){
+    const collection = await client.db("UserPerference").collection(preference);
+    let component  = await collection.findOne({name: userName});
+    if(component === null){
+        return false;
+    }else {
+        return component.Item;
+    }
+}
+
+app.get('/getShoppingCart/:user', async (req, res) =>{
     let userName = req.query.name;
-    res.send(userPcData[userName]);
+    let out ={}
+    if(await getUserPreference('CPU', userName)!== false){
+        out["CPU"] =await getUserPreference('CPU', userName);
+    }else {
+        out["CPU"] ='';
+    }
+    if(await getUserPreference('Cpu cooler', userName)!== false){
+        out["Cpu cooler"] =await getUserPreference('Cpu cooler', userName);
+    }else{
+        out["Cpu cooler"] = '';
+    }
+    if(await getUserPreference('GPU', userName)!== false){
+        out["GPU"] =await getUserPreference('GPU', userName);
+    }else{
+        out["GPU"] = '';
+    }
+    if(await getUserPreference('Memory', userName)!== false){
+        out["Memory"] =await getUserPreference('Memory', userName);
+    }else{
+        out["Memory"] = '';
+    }
+    if(await getUserPreference('MotherBoard', userName)!== false){
+        out["MotherBoard"] =await getUserPreference('MotherBoard', userName);
+    }else{
+        out["MotherBoard"] = '';
+    }
+    if(await getUserPreference('Pc Case', userName)!== false){
+        out["Pc Case"] =await getUserPreference('Pc Case', userName);
+    }else{
+        out["Pc Case"] = '';
+    }
+    if(await getUserPreference('Power Supply', userName)!== false){
+        out["Power Supply"] =await getUserPreference('Power Supply', userName);
+    }else{
+        out["Power Supply"] = '';
+    }
+    if(await getUserPreference('Storage', userName)!== false){
+        out["Storage"] =await getUserPreference('Storage', userName);
+    }else{
+        out["Storage"] = '';
+    }
+    res.send(out);
+});
+
+app.post('/updateCPU', async (req, res) => {
+    let userName= req.body['name'];
+    let newCPU = req.body['new'];
+    const collection = await client.db("UserPerference").collection('CPU');
+    await collection.updateOne({name: userName}, {$set: {Item: newCPU}});
+    res.send("CPU updated");
+});
+
+app.post('/updateCPUcooler', async (req, res) => {
+    let userName= req.body['name'];
+    let newCooler = req.body['new'];
+    const collection = await client.db("UserPerference").collection('Cpu cooler');
+    await collection.updateOne({name: userName}, {$set: {Item: newCooler}});
+    res.send("Cooler updated");
+});
+
+app.post('/updateGPU', async (req, res) => {
+    let userName= req.body['name'];
+    let newGPU = req.body['new'];
+    const collection = await client.db("UserPerference").collection('GPU');
+    await collection.updateOne({name: userName}, {$set: {Item: newGPU}});
+    res.send("GPU updated");
+});
+
+app.post('/updateGPU', async (req, res) => {
+    let userName= req.body['name'];
+    let newMemory = req.body['new'];
+    const collection = await client.db("UserPerference").collection('Memory');
+    await collection.updateOne({name: userName}, {$set: {Item: newMemory}});
+    res.send("Memory updated");
+});
+
+app.post('/updateMotherBoard', async (req, res) => {
+    let userName= req.body['name'];
+    let newMotherBoard = req.body['new'];
+    const collection = await client.db("UserPerference").collection('MotherBoard');
+    await collection.updateOne({name: userName}, {$set: {Item: newMotherBoard}});
+    res.send("MotherBoard updated");
+});
+
+app.post('/updatePcCase', async (req, res) => {
+    let userName= req.body['name'];
+    let newPcCase = req.body['new'];
+    const collection = await client.db("UserPerference").collection('Pc Case');
+    await collection.updateOne({name: userName}, {$set: {Item: newPcCase}});
+    res.send("Pc Case updated");
+});
+
+app.post('/updatePowerSupply', async (req, res) => {
+    let userName= req.body['name'];
+    let newPowerSupply = req.body['new'];
+    const collection = await client.db("UserPerference").collection('Power Supply');
+    await collection.updateOne({name: userName}, {$set: {Item: newPowerSupply}});
+    res.send("Power Supply updated");
+});
+
+app.post('/updateStorage', async (req, res) => {
+    let userName= req.body['name'];
+    let newStorage = req.body['new'];
+    const collection = await client.db("UserPerference").collection('Storage');
+    await collection.updateOne({name: userName}, {$set: {Item: newStorage}});
+    res.send("Storage updated");
+});
+
+app.get('/removeCPU', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('CPU');
+    await collection.deleteOne({name:userName});
+    res.send("CPU removed");
+})
+
+app.get('/removeCooler', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('Cpu cooler');
+    await collection.deleteOne({name:userName});
+    res.send("Cpu cooler removed");
+})
+
+app.get('/removeGPU', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('GPU');
+    await collection.deleteOne({name:userName});
+    res.send("GPU removed");
+})
+
+app.get('/removeMemory', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('Memory');
+    await collection.deleteOne({name:userName});
+    res.send("Memory removed");
+})
+
+app.get('/removeMotherBoard', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('MotherBoard');
+    await collection.deleteOne({name:userName});
+    res.send("MotherBoard removed");
+})
+
+app.get('/removeCase', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('Pc Case');
+    await collection.deleteOne({name:userName});
+    res.send("PC Case removed");
+})
+
+app.get('/removePower', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('Power Supply');
+    await collection.deleteOne({name:userName});
+    res.send("Power Supply removed");
+})
+
+app.get('/removeStorage', async (req, res) => {
+    let userName = req.query.name;
+    const collection = await client.db('UserPerference').collection('Storage');
+    await collection.deleteOne({name:userName});
+    res.send("Storage removed");
 })
 
 app.get('*', (request, response) => {
