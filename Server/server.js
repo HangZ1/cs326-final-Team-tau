@@ -41,12 +41,11 @@ app.get('/Login', async (req, res) => {
     let userName= req.query.name;
     let password= req.query.password;
     const userLoginData = await client.db("User").collection("ID&password");
-    let userLogin = await userLoginData.findOne({name:'Mike'});
+    let userLogin = await userLoginData.findOne({name:userName});
     if(userLogin === undefined){
         res.send("userName not found");
     }else{
         if(userLogin.password !== password){
-            console.log(password);
             res.send("incorrect password");
         }else{
             res.send("login");
@@ -74,9 +73,10 @@ app.post('/Register', async (req, res) =>{
 
 app.get('/getPC/:component', async (req, res) => {
     //TODO
+    let userName = req.query.name;
     const component = await client.db("User").collection("perferance");
-    let a = await component.findOne({name});
-    res.send(a);
+    let user = await component.findOne({"name":userName});
+    res.send(user);
 });
 
 
