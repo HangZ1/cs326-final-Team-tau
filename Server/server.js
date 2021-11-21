@@ -4,7 +4,7 @@ const uri = "mongodb+srv://3tham:bdm3tXWrE5LabZp@cluster0.3kbzw.mongodb.net/myFi
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-
+const path = require("path");
 const express = require('express');
 const fs = require('fs');
 const app = express();
@@ -19,22 +19,22 @@ const port = 8080;
 let userLoginData = {};
 let userPcData = {};
 
-if(fs.existsSync(LoginDataFile)) {
-    userLoginData = JSON.parse(fs.readFileSync(LoginDataFile));
-}
-else {userLoginData = {};}
-
-
-if(fs.existsSync(PcDataFile)) {
-    userPcData = JSON.parse(fs.readFileSync(PcDataFile));
-}
-else {userPcData = {};}
+// if(fs.existsSync(LoginDataFile)) {
+//     userLoginData = JSON.parse(fs.readFileSync(LoginDataFile));
+// }
+// else {userLoginData = {};}
+//
+//
+// if(fs.existsSync(PcDataFile)) {
+//     userPcData = JSON.parse(fs.readFileSync(PcDataFile));
+// }
+// else {userPcData = {};}
 
 
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve('./client/Homepage.html'));
+    res.sendFile(path.resolve('/cs326-final-Team-tau/Client/Homepage.html'));
 });
 
 app.get('/Login', async (req, res) => {
@@ -72,11 +72,13 @@ app.post('/Register', async (req, res) =>{
     }
 });
 
-app.get('/getPC/:component', (req, res) => {
+app.get('/getPC/:component', async (req, res) => {
     //TODO
-    let component = {"processor":"processor from server","motherBoard":"motherBoard from server","graphiccard":"graphiccard from server","memory":"memory from server","storage":"storage from server","pccase":"PC case from server","powersupply":"power supply from server","cpucooler":"cooler from server"};
-    res.send(component);
+    const component = await client.db("User").collection("perferance");
+    let a = await component.findOne({name});
+    res.send(a);
 });
+
 
 app.post('/addtoShoppingCart/:user', (req,res) => {
     //by Yuchen Liu
