@@ -2,17 +2,9 @@
 const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://3tham:bdm3tXWrE5LabZp@cluster0.3kbzw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
-    collection.findOne({asdf});
-    // db..findOne(
-    //     { },
-    //     { name: 1, contribs: 1 }
-    // )
-    // client.close();
-    console.log("we are in");
-});
+
+
+
 const express = require('express');
 const fs = require('fs');
 const app = express();
@@ -60,10 +52,14 @@ app.get('/Login', (req, res) => {
     }
 });
 
-app.post('/Register', (req, res) =>{
+app.post('/Register', async (req, res) =>{
     //by Yuchen Liu
     let userName = req.body['name'];
     let password = req.body['password'];
+    const collection = await client.db("PCComponentData").collection("CPU");
+// perform actions on the collection object
+    let a = await collection.findOne({name:'5800X'});
+    console.log('a')
     if(userLoginData[userName] === undefined){
         userLoginData[userName] = password;
         fs.writeFileSync(LoginDataFile,JSON.stringify(userLoginData));
@@ -106,8 +102,13 @@ app.get('*', (request, response) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-})
+client.connect(err => {
+    app.listen(port, () => {
+        console.log(`Example app listening at http://localhost:${port}`);
+    })
+
+});
+
+
 
 
