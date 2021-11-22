@@ -70,7 +70,7 @@ app.get('/getPC/:component', async (req, res) => {
 app.get('/getCPUbyCompany', async(req,res) => {
     let company = req.query.company;
     const Cpu = await client.db("PCComponentData").collection("CPU");
-    let getCpu = await Cpu.findOne({"company":company});
+    let getCpu = await Cpu.find({"company":company}).toArray();
     res.send(getCpu);
 });
 app.get('/getCPUbyCompanyAndPrice', async(req,res) => {
@@ -102,6 +102,31 @@ app.get('/getMemory', async(req,res) => {
     let getM = await M.findOne({"name":name,'price':price,'GB':GB });
     res.send(getM);
 });
+app.get('/getCPUfanbyprice', async(req,res) => {
+    let price = req.query.price;
+    const M = await client.db("PCComponentData").collection("Cpu Cooler");
+    let getM = await M.findOne({'price':price});
+    res.send(getM);
+});
+app.get('/getCPUfanbyscore', async(req,res) => {
+    let score= req.query.score;
+    const M = await client.db("PCComponentData").collection("Cpu Cooler");
+    let getM = await M.findOne({'score':score});
+    res.send(getM);
+});
+app.get('/getmbbyprice', async(req,res) => {
+    let price= req.query.price;
+    const M = await client.db("PCComponentData").collection("MotherBoard");
+    let getM = await M.findOne({'score':score});
+    res.send(getM);
+});
+app.get('/getmbbyscore', async(req,res) => {
+    let score= req.query.score;
+    const M = await client.db("PCComponentData").collection("MotherBoard");
+    let getM = await M.findOne({'score':score});
+    res.send(getM);
+});
+
 
 
 
