@@ -15,7 +15,7 @@ const LoginDataFile = 'LoginDataFile.json';
 const PcDataFile = 'PcDataFile.json';
 app.use(express.json());
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 let userLoginData = {};
 let userPcData = {};
 
