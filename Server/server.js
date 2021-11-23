@@ -8,12 +8,12 @@ const url = require("url");
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const cors = require("cors");
-app.use(cors());
+
 
 const LoginDataFile = 'LoginDataFile.json';
 const PcDataFile = 'PcDataFile.json';
 app.use(express.json());
+app.use(express.static('Client'));
 
 const port = process.env.PORT || 8080;
 let userLoginData = {};

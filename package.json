@@ -1,10 +1,10 @@
 {
-  "name": "cs326-final-Team-tau",
+  "name": "test",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node Server/server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "heroku"
