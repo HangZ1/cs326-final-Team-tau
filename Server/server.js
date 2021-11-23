@@ -22,9 +22,9 @@ let userPcData = {};
 
 
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('/cs326-final-Team-tau/Client/Homepage.html'));
-    // res.sendFile(__dirname + "/Client/Homepage.html");
+app.get('/', async function(req, res) {
+    res.sendFile(path.resolve('./Client/Homepage.html'));
+     //res.sendFile(__dirname + "/Client/Homepage.html");
 });
 
 app.get('/Login', async (req, res) => {
