@@ -1,0 +1,18 @@
+body{
+    background-color: #F0F8FF;
+}
+
+button{
+    margin-top: 20px;
+    float:left;
+    margin-right:25px;
+}
+
+.card-body{
+    font-weight: bold;
+    background-color: #DCDCDC;
+}
+
+#sign_in{
+    width:21rem;
+}
