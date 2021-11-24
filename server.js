@@ -142,7 +142,7 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
     pcSet.powersupply = req.body['powersupply'];
     pcSet.cpucooler = req.body['cpucooler'];
     userPcData[req.body.name] = pcSet;
-    fs.writeFileSync(PcDataFile,JSON.stringify(userPcData));
+    //fs.writeFileSync(PcDataFile,JSON.stringify(userPcData));
     res.send('Already add to the cart.');
 });
 
