@@ -37,6 +37,26 @@ PCComponentData.MotherBoard
 |score| Integer | score used to calcuate performance|
 |price| Integer| price of the MotherBoard|
 
+PCComponentData.Pc Case
+| Column       | Data Type | Description              |
+|--------------|-----------|--------------------------|
+| name  | String    | Name of the Case |
+|price| Integer| price of the Case|
+
+PCComponentData.Power Supply
+| Column       | Data Type | Description              |
+|--------------|-----------|--------------------------|
+| name  | String    | Name of the Power |
+|score| Integer | score used to calcuate performance|
+|price| Integer| price of the Power|
+
+PCComponentData.Storage
+| Column       | Data Type | Description              |
+|--------------|-----------|--------------------------|
+| name  | String    | Name of the Storage |
+|score| Integer | score used to calcuate performance|
+|price| Integer| price of the Storage|
+
   
 User.ID&password
 | Column       | Data Type | Description              |

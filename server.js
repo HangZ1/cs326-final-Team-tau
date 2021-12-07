@@ -128,8 +128,9 @@ app.get('/getmbbyscore', async(req,res) => {
 
 
 //TODO
-app.post('/addtoShoppingCart/:user', (req,res) => {
+app.post('/addtoShoppingCart/:user', async (req,res) => {
     //by Yuchen Liu
+<<<<<<< HEAD
     let pcSet = {};
     pcSet.processor = req.body['processor'];
     pcSet.motherBoard = req.body['motherBoard'];
@@ -139,6 +140,27 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
     pcSet.pccase = req.body['pccase'];
     pcSet.powersupply = req.body['powersupply'];
     pcSet.cpucooler = req.body['cpucooler'];
+=======
+    const cpu = await client.db("UserPerference").collection("CPU");
+    const cool = await client.db("UserPerference").collection("Cpu cooler");
+    const GPU = await client.db("UserPerference").collection("GPU");
+    const mem = await client.db("UserPerference").collection("Memory ");
+    const MotherBoard = await client.db("UserPerference").collection("MotherBoard");
+    const cs = await client.db("UserPerference").collection("Pc Case");
+    const power = await client.db("UserPerference").collection("Power Supply");
+    const Storage = await client.db("UserPerference").collection("Storage");
+
+    //collection.insertOne({name: userName, password: passWord})
+    cpu.insertOne({name: req.body.name, Item:req.body['processor']});
+    cool.insertOne({name: req.body.name, Item:req.body['cpucooler']});
+    GPU.insertOne({name: req.body.name, Item:req.body['graphiccard']});
+
+    mem.insertOne({name: req.body.name, Item:req.body['memory']});
+    MotherBoard.insertOne({name: req.body.name, Item:req.body['motherBoard']});
+    cs.insertOne({name: req.body.name, Item:req.body['pccase']});
+    power.insertOne({name: req.body.name, Item:req.body['powersupply']});
+    Storage.insertOne({name: req.body.name, Item:req.body['storage']});
+>>>>>>> 5b5c1569a87aa8738729d504c34f66017d877eeb
     res.send('Already add to the cart.');
 });
 

@@ -4,6 +4,7 @@ async function get_output(){
     const response = await fetch(url);
     if(response.ok){
         const responseJSON = await response.json();
+        document.getElementById("Uname").value = responseJSON.name;
         document.getElementById("processor").value = responseJSON.processor;
         document.getElementById("motherBoard").value = responseJSON.motherBoard;
         document.getElementById("graphicCard").value = responseJSON.graphiccard;
