@@ -5,12 +5,13 @@ async function Login_status(n, p){
     const response = await fetch(url);
      if(response.ok){
         const responseTEXT = await response.text();
+        console.log(responseTEXT)
         if(responseTEXT === "login") {
-            window.login_status= true;
             alert("you just signed in");
-            return login_status;
+            return true;
         }else{
             alert(responseTEXT);
+            return false;
         }
      }
 }

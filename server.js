@@ -3,34 +3,32 @@ const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://3tham:bdm3tXWrE5LabZp@cluster0.3kbzw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const path = require('path');
+
 const express = require('express');
 const fs = require('fs');
 const app = express();
 
 
-const LoginDataFile = 'LoginDataFile.json';
-const PcDataFile = 'PcDataFile.json';
 app.use(express.json());
+app.use(express.static('Client'));
 
 const port = process.env.PORT || 8080;
-let userLoginData = {};
-let userPcData = {};
 
 
 
 
 app.get('/', async function(req, res) {
-     res.sendFile(path.resolve('./Client/Homepage.html'));
+     res.sendFile(__dirname +'/Client/Homepage.html');
      //res.sendFile(__dirname + "/Client/Homepage.html");
 });
+
 
 app.get('/Login', async (req, res) => {
     let userName= req.query.name;
     let password= req.query.password;
     const userLoginData = await client.db("User").collection("ID&password");
     let userLogin = await userLoginData.findOne({name:userName});
-    if(userLogin === undefined){
+    if(!userLogin){
         res.send("userName not found");
     }else{
         if(userLogin.password !== password){
@@ -141,8 +139,6 @@ app.post('/addtoShoppingCart/:user', (req,res) => {
     pcSet.pccase = req.body['pccase'];
     pcSet.powersupply = req.body['powersupply'];
     pcSet.cpucooler = req.body['cpucooler'];
-    userPcData[req.body.name] = pcSet;
-    fs.writeFileSync(PcDataFile,JSON.stringify(userPcData));
     res.send('Already add to the cart.');
 });
 
