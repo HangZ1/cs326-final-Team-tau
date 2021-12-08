@@ -3,8 +3,10 @@ const storage = window.sessionStorage
 window.addEventListener('load', async() => {
     if(storage.getItem('username')){
         document.getElementById('Sign in').innerText='Sign out'
+        document.getElementById('Sign in').classList.add('btn-danger');
     }else{
         document.getElementById('Sign in').innerText='Sign in'
+        document.getElementById('Sign in').classList.add('btn-primary');
     }
 });
 
