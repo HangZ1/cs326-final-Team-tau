@@ -6,7 +6,7 @@ document.getElementById('signIn').addEventListener('click',() => {
     window.location.href = 'Signin_page.html';
 })
 
-document.getElementById('signUp').addEventListener('click',()=>{
+document.getElementById('signUp').addEventListener('click',async ()=>{
     let un = document.getElementById('userName').value;
     let pw = document.getElementById('passWord').value;
     let cf = document.getElementById('confirm').value;
@@ -15,7 +15,7 @@ document.getElementById('signUp').addEventListener('click',()=>{
             alert('The password entered does not match');
         }
         else{
-            if (register(un, pw)) {
+            if (await register(un, pw)) {
                 alert("sign up successfully");
                 window.location.href = 'Signin_page.html';
             }
@@ -27,7 +27,7 @@ document.getElementById('signUp').addEventListener('click',()=>{
 })
 
 async function register(un, pw){
-    const response = await fetch('http://localhost:8080/Register', {
+    const response = await fetch('/Register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'

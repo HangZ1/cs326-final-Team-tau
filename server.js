@@ -130,17 +130,6 @@ app.get('/getmbbyscore', async(req,res) => {
 //TODO
 app.post('/addtoShoppingCart/:user', async (req,res) => {
     //by Yuchen Liu
-<<<<<<< HEAD
-    let pcSet = {};
-    pcSet.processor = req.body['processor'];
-    pcSet.motherBoard = req.body['motherBoard'];
-    pcSet.graphiccard = req.body['graphiccard'];
-    pcSet.memory = req.body['memory'];
-    pcSet.storage = req.body['storage'];
-    pcSet.pccase = req.body['pccase'];
-    pcSet.powersupply = req.body['powersupply'];
-    pcSet.cpucooler = req.body['cpucooler'];
-=======
     const cpu = await client.db("UserPerference").collection("CPU");
     const cool = await client.db("UserPerference").collection("Cpu cooler");
     const GPU = await client.db("UserPerference").collection("GPU");
@@ -160,7 +149,6 @@ app.post('/addtoShoppingCart/:user', async (req,res) => {
     cs.insertOne({name: req.body.name, Item:req.body['pccase']});
     power.insertOne({name: req.body.name, Item:req.body['powersupply']});
     Storage.insertOne({name: req.body.name, Item:req.body['storage']});
->>>>>>> 5b5c1569a87aa8738729d504c34f66017d877eeb
     res.send('Already add to the cart.');
 });
 
