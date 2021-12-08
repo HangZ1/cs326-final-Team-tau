@@ -1,3 +1,5 @@
+const storage = window.sessionStorage
+
 async function Login_status(n, p){
     const user_name =n;
     const pass_word =p;
@@ -7,6 +9,7 @@ async function Login_status(n, p){
         const responseTEXT = await response.text();
         console.log(responseTEXT)
         if(responseTEXT === "login") {
+            storage.setItem('username', user_name);
             alert("you just signed in");
             return true;
         }else{
