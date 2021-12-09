@@ -7,7 +7,6 @@ async function Login_status(n, p){
     const response = await fetch(url);
      if(response.ok){
         const responseTEXT = await response.text();
-        console.log(responseTEXT)
         if(responseTEXT === "login") {
             storage.setItem('username', user_name);
             alert("you just signed in");

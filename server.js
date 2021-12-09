@@ -163,7 +163,7 @@ async function getUserPreference(preference, userName){
     }
 }
 
-app.get('/getShoppingCart/:user', async (req, res) =>{
+app.get('/getShoppingCart', async (req, res) =>{
     let userName = req.query.name;
     let out ={}
     if(await getUserPreference('CPU', userName)!== false){
@@ -172,9 +172,9 @@ app.get('/getShoppingCart/:user', async (req, res) =>{
         out["CPU"] ='';
     }
     if(await getUserPreference('Cpu cooler', userName)!== false){
-        out["Cpu cooler"] =await getUserPreference('Cpu cooler', userName);
+        out["cooler"] =await getUserPreference('Cpu cooler', userName);
     }else{
-        out["Cpu cooler"] = '';
+        out["cooler"] = '';
     }
     if(await getUserPreference('GPU', userName)!== false){
         out["GPU"] =await getUserPreference('GPU', userName);
@@ -192,14 +192,14 @@ app.get('/getShoppingCart/:user', async (req, res) =>{
         out["MotherBoard"] = '';
     }
     if(await getUserPreference('Pc Case', userName)!== false){
-        out["Pc Case"] =await getUserPreference('Pc Case', userName);
+        out["Case"] =await getUserPreference('Pc Case', userName);
     }else{
-        out["Pc Case"] = '';
+        out["Case"] = '';
     }
     if(await getUserPreference('Power Supply', userName)!== false){
-        out["Power Supply"] =await getUserPreference('Power Supply', userName);
+        out["Power"] =await getUserPreference('Power Supply', userName);
     }else{
-        out["Power Supply"] = '';
+        out["Power"] = '';
     }
     if(await getUserPreference('Storage', userName)!== false){
         out["Storage"] =await getUserPreference('Storage', userName);
@@ -277,56 +277,56 @@ app.get('/removeCPU', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('CPU');
     await collection.deleteOne({name:userName});
-    res.send("CPU removed");
+    res.send("removed");
 })
 
 app.get('/removeCooler', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('Cpu cooler');
     await collection.deleteOne({name:userName});
-    res.send("Cpu cooler removed");
+    res.send("removed");
 })
 
 app.get('/removeGPU', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('GPU');
     await collection.deleteOne({name:userName});
-    res.send("GPU removed");
+    res.send("removed");
 })
 
 app.get('/removeMemory', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('Memory');
     await collection.deleteOne({name:userName});
-    res.send("Memory removed");
+    res.send("removed");
 })
 
 app.get('/removeMotherBoard', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('MotherBoard');
     await collection.deleteOne({name:userName});
-    res.send("MotherBoard removed");
+    res.send("removed");
 })
 
 app.get('/removeCase', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('Pc Case');
     await collection.deleteOne({name:userName});
-    res.send("PC Case removed");
+    res.send("removed");
 })
 
 app.get('/removePower', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('Power Supply');
     await collection.deleteOne({name:userName});
-    res.send("Power Supply removed");
+    res.send("removed");
 })
 
 app.get('/removeStorage', async (req, res) => {
     let userName = req.query.name;
     const collection = await client.db('UserPerference').collection('Storage');
     await collection.deleteOne({name:userName});
-    res.send("Storage removed");
+    res.send("removed");
 })
 
 app.get('*', (request, response) => {

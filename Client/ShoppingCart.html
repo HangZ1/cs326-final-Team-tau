@@ -14,7 +14,7 @@
     <div class = "row">
         <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark">
-            <button class="btn btn-dark">PC Building Helper</button>
+            <button class="btn btn-dark" id = "PC Building Helper">PC Building Helper</button>
         </div>
         <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark "></div>
@@ -23,7 +23,7 @@
         <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark "></div>
         <div class="col p-1 bg-dark "></div>
-        <div class="col p-1 bg-dark "><button class="btn btn-primary"><span class="bi bi-person"></span> Sign in</button></div>
+        <div class="col p-1 bg-dark "><button class="btn btn-danger" id = "Sign in"><span class="bi bi-person"></span>Sign out</button></div>
     </div>
 </div>
 <br>
@@ -42,45 +42,65 @@
 <div class="col">
     <h1>Shopping Cart</h1>
     <form>
-        <div class="form-group pb-3 pt-3">
-            <label for = "processor">Name</label>
-            <input class = "form-control" id="Uname" placeholder = "Enter your userName" />
+        <div class="container pb-3 pt-3">
+            <h5>CPU</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="CPU" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_cpu">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "processor">Processor</label>
-            <input class = "form-control" id="processor" placeholder = "Enter processor you want" />
+        <div class="container pb-3 pt-3">
+            <h5>Cooler</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="cooler" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_cooler">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "motherBoard">MotherBoard</label>
-            <input class = "form-control" id="motherBoard" placeholder = "Enter motherboard you want" />
+        <div class="container pb-3 pt-3">
+            <h5>GPU</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="GPU" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_gpu">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "graphicCard">Graphic Card</label>
-            <input class = "form-control" id="graphicCard" placeholder = "Enter graphic card you want" />
+        <div class="container pb-3 pt-3">
+            <h5>Memory</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="memory" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_mem">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "memory">Memory</label>
-            <input class = "form-control" id="memory" placeholder = "Enter memory you want" />
+        <div class="container pb-3 pt-3">
+            <h5>MotherBoard</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="motherBoard" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_mb">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "storage">Storage</label>
-            <input class = "form-control" id="storage" placeholder = "Enter storage you want" />
+        <div class="container pb-3 pt-3">
+            <h5>Pc Case</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="pcCase" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_case">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "pcCase">Pc Case</label>
-            <input class = "form-control" id="pcCase" placeholder = "Enter Pc Case you want" />
+        <div class="container pb-3 pt-3">
+            <h5>Power Supply</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="powerSupply" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_pow">Delete</button>
+            </div>
         </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "powerSupply">Power Supply</label>
-            <input class = "form-control" id="powerSupply" placeholder = "Enter Power Supply you want" />
-        </div>
-        <div class="form-group pb-3 pt-3">
-            <label for = "cpuCooler">Cpu Cooler</label>
-            <input class = "form-control" id="cpuCooler" placeholder = "Enter Cpu Cooler you want" />
+        <div class="container pb-3 pt-3">
+            <h5>Storage</h5>
+            <div class="d-flex">
+                <input class = "form-control mr-1" id="storage" placeholder = "N/A"/>
+                <button type="button" class="btn btn-danger" id = "D_storage">Delete</button>
+            </div>
         </div>
 
         <div>
-            <button type="button" class="btn btn-primary" id = check>Check</button>
+            <button type="button" class="btn btn-primary" id = back>Go Back</button>
         </div>
     </form>
 </div>
