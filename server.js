@@ -7,13 +7,10 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 const express = require('express');
 const fs = require('fs');
 const app = express();
-
-
 app.use(express.json());
 app.use(express.static('Client'));
 
 const port = process.env.PORT || 8080;
-
 
 
 
@@ -55,13 +52,6 @@ app.post('/Register', async (req, res) =>{
     }
 });
 
-//toDO
-app.get('/getPC/:component', async (req, res) => {
-    let userName = req.query.name;
-    const component = await client.db("User").collection("perferance");
-    let user = await component.findOne({"name":userName});
-    res.send(user);
-});
 
 app.get('/getCPUbyCompany', async(req,res) => {
     let company = req.query.company;
@@ -123,32 +113,15 @@ app.get('/getmbbyscore', async(req,res) => {
     res.send(getM);
 });
 
-
-
-
-
-//TODO
-app.post('/addtoShoppi', async (req,res) => {
-    //by Yuchen Liu
-    const cpu = await client.db("UserPerference").collection("CPU");
-    const cool = await client.db("UserPerference").collection("Cpu cooler");
-    const GPU = await client.db("UserPerference").collection("GPU");
-    const mem = await client.db("UserPerference").collection("Memory ");
-    const MotherBoard = await client.db("UserPerference").collection("MotherBoard");
-    const cs = await client.db("UserPerference").collection("Pc Case");
-    const power = await client.db("UserPerference").collection("Power Supply");
-    const Storage = await client.db("UserPerference").collection("Storage");
-    cpu.insertOne({name: req.body.name, Item:req.body.cart['processor']});
-    cool.insertOne({name: req.body.name, Item:req.body['cpucooler']});
-    GPU.insertOne({name: req.body.name, Item:req.body['graphiccard']});
-
-    mem.insertOne({name: req.body.name, Item:req.body['memory']});
-    MotherBoard.insertOne({name: req.body.name, Item:req.body['motherBoard']});
-    cs.insertOne({name: req.body.name, Item:req.body['pccase']});
-    power.insertOne({name: req.body.name, Item:req.body['powersupply']});
-    Storage.insertOne({name: req.body.name, Item:req.body['storage']});
-    res.send('added to the cart.');
-});
+async function getUserPreference(preference, userName){
+    const collection = await client.db("UserPerference").collection(preference);
+    let component  = await collection.findOne({name: userName});
+    if(component === null){
+        return false;
+    }else {
+        return component.Item;
+    }
+}
 
 async function addUserPreference(preference, userName, item){
     const collection = await client.db("UserPerference").collection(preference);
@@ -222,16 +195,85 @@ app.post('/addShoppingCart', async (req, res) =>{
     res.send('added to the cart.');
 })
 
-async function getUserPreference(preference, userName){
-    const collection = await client.db("UserPerference").collection(preference);
-    let component  = await collection.findOne({name: userName});
-    if(component === null){
-        return false;
-    }else {
-        return component.Item;
+app.post('/addUserCPU', async(req, res) => {
+    let userName = req.body.name;
+    let CPU = req.body.cpu;
+    if(await getUserPreference('CPU', userName)!== false){
+        await updateUserpreference('CPU', userName, CPU);
+    }else{
+        await addUserPreference('CPU', userName, CPU);
     }
-}
+})
 
+app.post('/addUsercooler', async(req, res) => {
+    let userName = req.body.name;
+    let cooler = req.body.cool;
+    if(await getUserPreference('Cpu cooler', userName)!== false){
+        await updateUserpreference('Cpu cooler', userName, cooler);
+    }else{
+        await addUserPreference('Cpu cooler', userName, cooler);
+    }
+})
+
+app.post('/addUserGPU', async(req, res) => {
+    let userName = req.body.name;
+    let GPU = req.body.gpu;
+    if(await getUserPreference('GPU', userName)!== false){
+        await updateUserpreference('GPU', userName, GPU);
+    }else{
+        await addUserPreference('GPU', userName, GPU);
+    }
+})
+
+app.post('/addUserMemory', async(req, res) => {
+    let userName = req.body.name;
+    let memory = req.body.mem;
+    if(await getUserPreference('Memory', userName)!== false){
+        await updateUserpreference('Memory', userName, memory);
+    }else{
+        await addUserPreference('Memory', userName, memory);
+    }
+})
+
+app.post('/addUserMoterboard', async(req, res) => {
+    let userName = req.body.name;
+    let moterboard = req.body.mb;
+    if(await getUserPreference('MotherBoard', userName)!== false){
+        await updateUserpreference('MotherBoard', userName, moterboard);
+    }else{
+        await addUserPreference('MotherBoard', userName, moterboard);
+    }
+})
+
+app.post('/addUserPCcase', async(req, res) => {
+    let userName = req.body.name;
+    let pccase = req.body.pcase;
+    if(await getUserPreference('Pc Case', userName)!== false){
+        await updateUserpreference('Pc Case', userName, pccase);
+    }else{
+        await addUserPreference('Pc Case', userName, pccase);
+    }
+})
+
+app.post('/addUserPower', async(req, res) => {
+    let userName = req.body.name;
+    let power = req.body.ps;
+    if(await getUserPreference('Power Supply', userName)!== false){
+        await updateUserpreference('Power Supply', userName, power);
+    }else{
+        await addUserPreference('Power Supply', userName, power);
+    }
+})
+
+app.post('/addUserStorage', async(req, res) => {
+    let userName = req.body.name;
+    let storage = req.body.st;
+    if(await getUserPreference('Storage', userName)!== false){
+        await updateUserpreference('Storage', userName, storage);
+    }else{
+        await addUserPreference('Storage', userName, storage);
+    }
+})
 
 app.get('/getShoppingCart', async (req, res) =>{
     let userName = req.query.name;
