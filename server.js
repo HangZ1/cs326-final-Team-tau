@@ -138,9 +138,7 @@ app.post('/addtoShoppingCart/:user', async (req,res) => {
     const cs = await client.db("UserPerference").collection("Pc Case");
     const power = await client.db("UserPerference").collection("Power Supply");
     const Storage = await client.db("UserPerference").collection("Storage");
-
-    //collection.insertOne({name: userName, password: passWord})
-    cpu.insertOne({name: req.body.name, Item:req.body['processor']});
+    cpu.insertOne({name: req.body.name, Item:req.body.cart['processor']});
     cool.insertOne({name: req.body.name, Item:req.body['cpucooler']});
     GPU.insertOne({name: req.body.name, Item:req.body['graphiccard']});
 
@@ -149,9 +147,21 @@ app.post('/addtoShoppingCart/:user', async (req,res) => {
     cs.insertOne({name: req.body.name, Item:req.body['pccase']});
     power.insertOne({name: req.body.name, Item:req.body['powersupply']});
     Storage.insertOne({name: req.body.name, Item:req.body['storage']});
-    res.send('Already add to the cart.');
+    res.send('added to the cart.');
 });
 
+async function addUserPreference(preference, userName, item){
+    const collection = await client.db("UserPerference").collection(preference);
+    collection.insertOne({name: userName, Item: item});
+}
+
+// app.post('/addShoppingCart', async (req, res) =>{
+//     let userName = req.body.name;
+//     let CPU = req.body.CPU;
+//     let
+//
+//
+// })
 
 async function getUserPreference(preference, userName){
     const collection = await client.db("UserPerference").collection(preference);
