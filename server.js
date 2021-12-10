@@ -128,7 +128,7 @@ app.get('/getmbbyscore', async(req,res) => {
 
 
 //TODO
-app.post('/addtoShoppingCart/:user', async (req,res) => {
+app.post('/addtoShoppi', async (req,res) => {
     //by Yuchen Liu
     const cpu = await client.db("UserPerference").collection("CPU");
     const cool = await client.db("UserPerference").collection("Cpu cooler");
@@ -155,13 +155,72 @@ async function addUserPreference(preference, userName, item){
     collection.insertOne({name: userName, Item: item});
 }
 
-// app.post('/addShoppingCart', async (req, res) =>{
-//     let userName = req.body.name;
-//     let CPU = req.body.CPU;
-//     let
-//
-//
-// })
+async function updateUserpreference(preference, userName, item){
+    const collection = await client.db("UserPerference").collection(preference);
+    await collection.updateOne({name: userName}, {$set: {Item: item}});
+};
+
+app.post('/addShoppingCart', async (req, res) =>{
+    let userName = req.body.name;
+    let CPU = req.body.cpu;
+    let cooler = req.body.cool;
+    let GPU = req.body.gpu;
+    let memory = req.body.mem;
+    let moterboard = req.body.mb;
+    let pccase = req.body.pcase;
+    let power = req.body.ps;
+    let storage = req.body.st;
+
+    if(await getUserPreference('CPU', userName)!== false){
+        await updateUserpreference('CPU', userName, CPU);
+    }else{
+        await addUserPreference('CPU', userName, CPU);
+    }
+
+    if(await getUserPreference('Cpu cooler', userName)!== false){
+        await updateUserpreference('Cpu cooler', userName, cooler);
+    }else{
+        await addUserPreference('Cpu cooler', userName, cooler);
+    }
+
+    if(await getUserPreference('GPU', userName)!== false){
+        await updateUserpreference('GPU', userName, GPU);
+    }else{
+        await addUserPreference('GPU', userName, GPU);
+    }
+
+    if(await getUserPreference('Memory', userName)!== false){
+        await updateUserpreference('Memory', userName, memory);
+    }else{
+        await addUserPreference('Memory', userName, memory);
+    }
+
+    if(await getUserPreference('MotherBoard', userName)!== false){
+        await updateUserpreference('MotherBoard', userName, moterboard);
+    }else{
+        await addUserPreference('MotherBoard', userName, moterboard);
+    }
+
+    if(await getUserPreference('Pc Case', userName)!== false){
+        await updateUserpreference('Pc Case', userName, pccase);
+    }else{
+        await addUserPreference('Pc Case', userName, pccase);
+    }
+
+    if(await getUserPreference('Power Supply', userName)!== false){
+        await updateUserpreference('Power Supply', userName, power);
+    }else{
+        await addUserPreference('Power Supply', userName, power);
+    }
+
+    if(await getUserPreference('Storage', userName)!== false){
+        await updateUserpreference('Storage', userName, storage);
+    }else{
+        await addUserPreference('Storage', userName, storage);
+    }
+
+    res.send('added to the cart.');
+})
 
 async function getUserPreference(preference, userName){
     const collection = await client.db("UserPerference").collection(preference);
@@ -172,6 +231,7 @@ async function getUserPreference(preference, userName){
         return component.Item;
     }
 }
+
 
 app.get('/getShoppingCart', async (req, res) =>{
     let userName = req.query.name;
