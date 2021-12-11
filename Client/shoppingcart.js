@@ -1,18 +1,22 @@
 const storage = window.sessionStorage
 
 window.addEventListener('load', async() =>{
-    const url = '/getShoppingCart?name=' + storage.getItem('username');
-    const response = await fetch(url);
-    if(response.ok){
-        const responseJSON = await response.json();
-        document.getElementById("CPU").value = responseJSON.CPU;
-        document.getElementById("cooler").value = responseJSON.cooler;
-        document.getElementById("GPU").value = responseJSON.GPU;
-        document.getElementById("memory").value = responseJSON.Memory;
-        document.getElementById("motherBoard").value = responseJSON.MotherBoard;
-        document.getElementById("pcCase").value = responseJSON.Case;
-        document.getElementById("powerSupply").value = responseJSON.Power;
-        document.getElementById("storage").value = responseJSON.Storage;
+    if(storage.getItem('username')) {
+        const url = '/getShoppingCart?name=' + storage.getItem('username');
+        const response = await fetch(url);
+        if (response.ok) {
+            const responseJSON = await response.json();
+            document.getElementById("CPU").value = responseJSON.CPU;
+            document.getElementById("cooler").value = responseJSON.cooler;
+            document.getElementById("GPU").value = responseJSON.GPU;
+            document.getElementById("memory").value = responseJSON.Memory;
+            document.getElementById("motherBoard").value = responseJSON.MotherBoard;
+            document.getElementById("pcCase").value = responseJSON.Case;
+            document.getElementById("powerSupply").value = responseJSON.Power;
+            document.getElementById("storage").value = responseJSON.Storage;
+        }
+    }else{
+        window.location.href="Signin_page.html";
     }
 });
 

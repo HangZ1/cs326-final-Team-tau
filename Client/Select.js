@@ -1,8 +1,14 @@
 const storage = window.sessionStorage
 
+window.addEventListener('load', ()=>{
+    if(!storage.getItem('username')){
+        window.location.href = 'Signin_page.html';
+    }
+});
+
 document.getElementById('helper').addEventListener('click',() => {
     window.location.href = 'Homepage.html';
-})
+});
 
 
 document.getElementById('Signin').addEventListener('click',() => {
@@ -11,14 +17,11 @@ document.getElementById('Signin').addEventListener('click',() => {
     window.location.href = 'Homepage.html';
 });
 
-document.getElementById("About").addEventListener('click',() => {
-    //window.location.href = 'About.html';
-})
-
 
 document.getElementById("plans").addEventListener('click',() => {
     window.location.href = 'ShoppingCart.html';
-})
+});
+
 document.getElementById("Build").addEventListener('click',() => {
     window.location.href = 'Output_page.html';
-})
+});

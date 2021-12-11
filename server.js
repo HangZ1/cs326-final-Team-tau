@@ -225,7 +225,7 @@ app.post('/addUserGPU', async(req, res) => {
     }
 })
 
-app.post('/addUserMemory', async(req, res) => {
+        app.post('/addUserMemory', async(req, res) => {
     let userName = req.body.name;
     let memory = req.body.mem;
     if(await getUserPreference('Memory', userName)!== false){
@@ -320,7 +320,7 @@ app.get('/getShoppingCart', async (req, res) =>{
     }
     res.send(out);
 });
-
+//update
 app.post('/updateCPU', async (req, res) => {
     let userName= req.body['name'];
     let newCPU = req.body['new'];
@@ -345,7 +345,7 @@ app.post('/updateGPU', async (req, res) => {
     res.send("GPU updated");
 });
 
-app.post('/updateGPU', async (req, res) => {
+app.post('/updateMemory', async (req, res) => {
     let userName= req.body['name'];
     let newMemory = req.body['new'];
     const collection = await client.db("UserPerference").collection('Memory');

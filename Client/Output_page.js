@@ -22,14 +22,18 @@ async function push_cart(){
 }
 
 window.addEventListener('load', () =>{
-    document.getElementById("CPU").value = 'responseJSON.processor';
-    document.getElementById("cooler").value = 'responseJSON.motherBoard';
-    document.getElementById("GPU").value = 'responseJSON.graphiccard';
-    document.getElementById("memory").value = 'responseJSON.memory';
-    document.getElementById("motherboard").value = 'responseJSON.storage';
-    document.getElementById("pcCase").value = 'responseJSON.pccase';
-    document.getElementById("powerSupply").value = 'responseJSON.powersupply';
-    document.getElementById("Storage").value = 'responseJSON.cpucooler';
+    if(storage.getItem('username')) {
+        document.getElementById("CPU").value = 'responseJSON.processor';
+        document.getElementById("cooler").value = 'responseJSON.motherBoard';
+        document.getElementById("GPU").value = 'responseJSON.graphiccard';
+        document.getElementById("memory").value = 'responseJSON.memory';
+        document.getElementById("motherboard").value = 'responseJSON.storage';
+        document.getElementById("pcCase").value = 'responseJSON.pccase';
+        document.getElementById("powerSupply").value = 'responseJSON.powersupply';
+        document.getElementById("Storage").value = 'responseJSON.cpucooler';
+    }else{
+        window.location.href='Signin_page.html';
+    }
 });
 
 document.getElementById('Signout').addEventListener('click', ()=> {
