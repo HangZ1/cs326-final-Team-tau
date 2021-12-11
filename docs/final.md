@@ -90,3 +90,49 @@ Yuchen Liu is responsible for /register and /getShoppingCart, and api that add e
 
 #### For the final submission:
 Guanxu Zhou and Yuchen liu will be recording the video because Hang Zheng have issue with mic, so Hang Zheng will be writing the final.md
+
+## Conclusion:
+Hang: personally I learned alot thourght out the project, it help me better understand the content of the lecture by using them to make a the real world application.
+
+
+# Rubric 
+
+### CRUD &emsp; &emsp; &emsp; &emsp; &emsp; ___ / 10 pts
+- Create 
+  - User ID & password
+  - PC compoent in the shopping cart
+- Read
+  - User ID & password
+  - PC component in the shopping cart
+  - PC component used for the algorithm
+- Update
+  - Update PC component in the shopping cart
+- Delete
+  - Delete PC component in the shopping cart
+
+### Final submission &emsp; &emsp; &emsp; &emsp; &emsp; ___ / 10 pts
+- A working heroku deployment 
+- Clear and concise video demo
+
+### General &emsp; &emsp; &emsp; &emsp; &emsp; ___ / 15 pts
+- Authentication
+  - Successfully create a user through sign up
+  - Successfully login a user
+  - Only able to view the details of the inner pages if you are a user
+    - When attempting to load pages when youre not signed in, the user will be redireced to the signin page
+  - The user can sign out at any time
+- Routing
+- Linting/ code style
+
+### Selecting page &emsp; &emsp; &emsp; &emsp; &emsp; ___ / 20 pts
+- Can successfully make selection of the ideal pc feature
+- Will be redirect to the output page
+
+### Output result &emsp; &emsp; &emsp; &emsp; &emsp; ___ / 20 pts
+- The result will match the choice the user make in the previous page
+- Can successfully add each or all component to the shopping cart
+
+### Shopping cart &emsp; &emsp; &emsp; &emsp; &emsp; ___ / 25 pts
+- Can successfully get component the user added
+- Can successfully delete each componenet
+- Can successfully dipslay the cart associate with the user
