@@ -25,3 +25,12 @@ document.getElementById("plans").addEventListener('click',() => {
 document.getElementById("Build").addEventListener('click',() => {
     window.location.href = 'Output_page.html';
 });
+
+function makeChoice(pur,chip,price){
+    if(pur === "game"){
+
+    }
+    else if(pur === "office"){
+
+    }
+}
