@@ -112,6 +112,56 @@ app.get('/getmbbyscore', async(req,res) => {
     res.send(getM);
 });
 
+
+
+
+app.get('/getAllcooler', async(req,res) => {
+    const ccler = await client.db("PCComponentData").collection("Cpu Cooler");
+    let cool = await ccler.find().toArray();
+    res.send(cool);
+});
+
+app.get('/getAllGPU', async(req,res) => {
+    const GPU = await client.db("PCComponentData").collection("GPU");
+    let g = await GPUr.find().toArray();
+    res.send(g);
+});
+
+
+app.get('/getAllMEM', async(req,res) => {
+    const MEM = await client.db("PCComponentData").collection("Memory");
+    let m = await MEM.find().toArray();
+    res.send(m);
+});
+
+app.get('/getAllMotherBoard', async(req,res) => {
+    const mo = await client.db("PCComponentData").collection("MotherBoard");
+    let m = await mo.find().toArray();
+    res.send(m);
+});
+
+app.get('/getAllPCCase', async(req,res) => {
+    const Pcc = await client.db("PCComponentData").collection("Pc Case");
+    let p = await Pcc.find().toArray();
+    res.send(p);
+});
+
+app.get('/getAllPS', async(req,res) => {
+    const po = await client.db("PCComponentData").collection("Power Supply");
+    let s = await po.find().toArray();
+    res.send(s);
+});
+
+app.get('/getAllStorage', async(req,res) => {
+    const st = await client.db("PCComponentData").collection("Storage");
+    let s = await st.find().toArray();
+    res.send(s);
+});
+
+
+
+
+
 async function getUserPreference(preference, userName){
     const collection = await client.db("UserPerference").collection(preference);
     let component  = await collection.findOne({name: userName});
