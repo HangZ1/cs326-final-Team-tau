@@ -16,7 +16,6 @@ const port = process.env.PORT || 8080;
 
 app.get('/', async function(req, res) {
      res.sendFile(__dirname +'/Client/Homepage.html');
-     //res.sendFile(__dirname + "/Client/Homepage.html");
 });
 
 
