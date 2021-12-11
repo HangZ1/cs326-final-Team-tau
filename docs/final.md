@@ -31,3 +31,59 @@ Output page: A list of PC component based on the user choice on selection page
 
 Shopping cart page: A page where the component the user select will be stored, different user will have different cart based on their choice
 ![image](https://user-images.githubusercontent.com/89880421/145691628-22f092a5-afd6-4b18-ae3a-966e5bf216a1.png)
+
+## API:
+GET /Login: Send username and password to the server and server will examine the password and the username and return whether or not the user has successfully join
+
+POST /Register: Send username and password to the server for later login in
+
+POST /addShoppingCart: Send all the component in the request body to the server specific to the user
+
+POST /addUserCPU, /addUsercooler, /addUserGPU, /addUserMemory, /addUserMoterboard, /addUserPCcase, /addUserPower, /addUserStorage: Send the specific component to the server
+
+GET /getShoppingCart: Get the shopping cart of a user
+
+UPDATE /updateCPU, /updateCPUcooler, /updateGPU, /updateMemory, /updateMotherBoard, /updatePcCase, /updatePowerSupply, /updateStorage: update the specific component
+
+DELETE /removeCPU, /removeCooler, /removeGPU, /removeMemory, /removeMotherBoard, /removeCase, /removePower, /removeStorage: delete the specific component from the databse
+
+## Database: 
+#### PCComponentData's collection:
+CPU, Cpu Cooler, GPU, Memory, MotherBoard, Pc Case, Power Supply, Storage: This is the database contain all the component, each as a collection, we use them to calculate the ideal output for the user
+
+#### ID&password:
+ID&password: This is the database contain all the user id and password pair, a data can be added through signing up
+
+#### UserPerference:
+CPU, Cpu Cooler, GPU, Memory, MotherBoard, Pc Case, Power Supply, Storage: This is the data base containing all the user's shopping cart
+
+## URL Routes/Mappings:
+https://team-tau.herokuapp.com/： This is the homepage of the app. This page is accessible to everyone
+
+https://team-tau.herokuapp.com/Signin_page.html: This is the sign in page, the user can use this page to sign in to their accound. This page is accessible to everyone
+
+https://team-tau.herokuapp.com/SignUp_page.html: This is the sign up page, the user can use this page to sign up for an accound. This page is accessible to everyone
+
+https://team-tau.herokuapp.com/Select.html: This is the select page, the user can chose their ideal feature for the pc. This page is only accessible if the user is sign in
+
+https://team-tau.herokuapp.com/Output_page.html: This is the outout page, this page will diplay a list of component return by the server base on the choice they make on select page. This page is only accessible if the user is sign in
+
+https://team-tau.herokuapp.com/ShoppingCart.html: This is the shopping cart page, the user can add component they like to their shopping cart and it will be display on this page. This page is only accessible if the user is sign in 
+
+
+## Authentication/Authorization:
+The user is asked to sign in to an accound before they can experience any feature of the app, and each user will have their own private shopping cart that they can modify.
+
+## Division of Labor: 
+#### For the front end: 
+Guanxu Zhou is responsible for Homepage and seclect page 
+Hang Zheng is responsible for sign-in and the output page. 
+Yuchen Liu is responsible for sign-up page and shopping cart page.
+
+#### For the back end: 
+Guanxu Zhou is responsible for  /Login, /addShoppingCart, and api that get each component
+Hang Zheng is responsible for /addShoppingCart, and all the update and delete api
+Yuchen Liu is responsible for /register and /getShoppingCart, and api that add each component
+
+#### For the final submission:
+Guanxu Zhou and Yuchen liu will be recording the video because Hang Zheng have issue with mic, so Hang Zheng will be writing the final.md
