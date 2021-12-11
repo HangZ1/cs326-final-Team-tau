@@ -23,5 +23,19 @@ document.getElementById("plans").addEventListener('click',() => {
 });
 
 document.getElementById("Build").addEventListener('click',() => {
-    window.location.href = 'Output_page.html';
+    var e = document.getElementById("Budget");
+    var value =e.options[e.selectedIndex].value;
+    if(document.getElementById("Purpose").value === "Office" ){
+        if((value !== "less than $1000" && value !== "1000 to 1500")){
+            alert("Office purpose is not available in this budget");
+        }
+        else{
+            window.location.href = 'Output_page.html';
+        }
+    }
+    else{
+        window.location.href = 'Output_page.html';
+    }
+    // window.location.href = 'Output_page.html';
 });
+
