@@ -8,15 +8,42 @@
     <script src="Output_page.js" defer></script>
 </head>
 <body class="container">
-<h3>Result:</h3>
-<div class="row">
-    <div class ='col'>
-        <div class ='card'>
-            <h6>Performance: xxxxxxxxxxxxxxxxxxxxx</h6>
-            <h6>Total price: $___</h6>
-            <h6>Description: *******************************</h6>
+<div class="fixed-top">
+    <div class = "row">
+        <div class="col p-1 bg-dark ">
+            <div class="dropdown">
+                <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                    <span class="bi bi-arrow-bar-down"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" id = "Yourplans"><span class="bi bi-save"></span>  Your plans</a></li>
+                    <li><a class="dropdown-item" href="#" id = "About"><span class="bi bi-exclamation-circle"></span>   About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col p-1 bg-dark">
+            <button class="btn btn-dark" id = "helper">PC Building Helper</button>
+        </div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark "></div>
+        <div class="col p-1 bg-dark ">
+            <button class="btn btn-danger" id = "Signout"><span class="bi bi-person"></span>Sign out</button>
         </div>
     </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<h3>Result:</h3>
+<div class="row">
     <form>
         <div class="form-group pb-3 pt-3">
             <label for = "CPU">CPU</label>
@@ -79,13 +106,6 @@
             <button type="button" class="btn btn-primary button" id = "allToCart">Add all to cart</button>
             <button type="button" class="btn btn-primary button" id = "back_select">Back to seletion</button>
             <button type="button" class="btn btn-primary button" id = "shopping_cart">Shopping cart</button>
-        </div>
-        <div>
-            <ul id = "page" class="pagination">
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul>
         </div>
     </form>
 </div>

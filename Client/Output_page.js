@@ -1,7 +1,6 @@
 const storage = window.sessionStorage
 
 
-
 async function push_cart(){
     const response = await fetch('/addShoppingCart', {
         method: 'POST',
@@ -31,6 +30,12 @@ window.addEventListener('load', () =>{
     document.getElementById("pcCase").value = 'responseJSON.pccase';
     document.getElementById("powerSupply").value = 'responseJSON.powersupply';
     document.getElementById("Storage").value = 'responseJSON.cpucooler';
+});
+
+document.getElementById('Signout').addEventListener('click', ()=> {
+    storage.clear();
+    alert("you just signed out")
+    window.location.href = 'Homepage.html';
 });
 
 document.getElementById('allToCart').addEventListener('click', ()=>{

@@ -2,19 +2,19 @@ const storage = window.sessionStorage
 
 window.addEventListener('load', async() => {
     if(storage.getItem('username')){
-        document.getElementById('Sign in').innerText='Sign out'
-        document.getElementById('Sign in').classList.add('btn-danger');
+        document.getElementById('Signin').innerText='Sign out'
+        document.getElementById('Signin').classList.add('btn-danger');
     }else{
-        document.getElementById('Sign in').innerText='Sign in'
-        document.getElementById('Sign in').classList.add('btn-primary');
+        document.getElementById('Signin').innerText='Sign in'
+        document.getElementById('Signin').classList.add('btn-primary');
     }
 });
 
-document.getElementById('PC Building Helper').addEventListener('click',() => {
+document.getElementById('helper').addEventListener('click',() => {
     window.location.href = 'Homepage.html';
 });
 
-document.getElementById('Sign in').addEventListener('click',() => {
+document.getElementById('Signin').addEventListener('click',() => {
     if(storage.getItem('username')){
         storage.clear();
         alert("you just signed out")
@@ -25,12 +25,8 @@ document.getElementById('Sign in').addEventListener('click',() => {
     }
 });
 
-document.getElementById("About").addEventListener('click',() => {
-    //window.location.href = 'About.html';
-});
 
-
-document.getElementById("Let's do it").addEventListener('click',() => {
+document.getElementById("doit").addEventListener('click',() => {
     if(storage.getItem('username')){
         window.location.href = 'Select.html';
     } else{
@@ -38,7 +34,7 @@ document.getElementById("Let's do it").addEventListener('click',() => {
     }
 });
 
-document.getElementById("Your plans").addEventListener('click',() => {
+document.getElementById("Yourplans").addEventListener('click',() => {
     if(storage.getItem('username')){
         window.location.href = 'ShoppingCart.html';
     }else{

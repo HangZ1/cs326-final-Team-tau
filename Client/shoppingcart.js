@@ -16,11 +16,11 @@ window.addEventListener('load', async() =>{
     }
 });
 
-document.getElementById('PC Building Helper').addEventListener('click', ()=> {
+document.getElementById('helper').addEventListener('click', ()=> {
     window.location.href = 'Homepage.html';
 });
 
-document.getElementById('Sign in').addEventListener('click',() => {
+document.getElementById('Signin').addEventListener('click',() => {
     storage.clear();
     alert("you just signed out")
     window.location.href = 'Homepage.html';
