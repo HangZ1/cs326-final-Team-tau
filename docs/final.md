@@ -93,9 +93,8 @@ Guanxu Zhou and Yuchen liu will be recording the video because Hang Zheng have i
 
 ## Conclusion:
 Hang: personally I learned alot thourght out the project, it help me better understand the content of the lecture by using them to make a the real world application.
-
-
-Yuchen: I think HTML part especially bootstrap is interesting for me, that give me chance to make my own beautiful web.
+Yuchen: I think HTML part especially bootstrap is interesting for me, that give me chance to make my own beautiful web. 
+Guanxu: The thing I learn here is that if I build the website based on a developer's mind , the user would get confused on it.
 
 
 # Rubric 
