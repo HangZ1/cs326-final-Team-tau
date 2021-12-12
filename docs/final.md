@@ -11,7 +11,7 @@ PC Building Helper
 Fall 2021
 
 ## Overview:
-
+Our app will provide a algorith that will return a list of PC component based on the user's preference, which will be collected on the select page, the user can then add those returned componenet to their shopping cart, and manage their shopping cart by deleting component they don't want anymore. Our application is innovative because our application  will provide some tips on our recommendation
 
 ## Team Members:
 Guanxu Zhou(MikaIcarus), Hang Zheng(HangZ1), Yuchen Liu(3TH4NL)
