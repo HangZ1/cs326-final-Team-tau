@@ -108,7 +108,7 @@ async function makeChoice(chip, pr) {
     Mo = Mo.sort((a, b) => b.price - a.price);
     PCC = PCC.sort((a, b) => b.price - a.price);
     PS = PS.sort((a, b) => b.price - a.price);
-    St = cool.sort((a, b) => b.price - a.price);
+    St = St.sort((a, b) => b.price - a.price);
     if (chip === "AMD") {
         const CUrl = "/getCPUbyCompany?company=AMD"
         let CPU = await (await fetch(CUrl)).json();
