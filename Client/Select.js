@@ -28,18 +28,8 @@ document.getElementById("Build").addEventListener('click',async () => {
     var value = e.options[e.selectedIndex].value;
     var a = document.getElementById("chip");
     var avalue = a.options[a.selectedIndex].value;
-    if (document.getElementById("Purpose").value === "Office") {
-        if ((value !== "less than $1000")) {
-            alert("Office purpose is not available in this budget");
-        } else {
-            window.location.href = 'Output_page.html';
-        }
-    } else if (avalue === "AMD" && document.getElementById("Purpose").value === "Gaming") {
-        if (value === "less than $1000") {
-            alert("Due to the high price of AMD cpu, Gaming under $1000 with AMD platform is not valid");
-        } else {
-            window.location.href = 'Output_page.html';
-        }
+    if (document.getElementById("Purpose").value === "Office" && value !== "less than $1000") {
+        alert("Office purpose is not available in this budget");
     }
     if (document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "Intel") {
         lstorage.setItem("CPU", "i3-10100");
@@ -119,7 +109,6 @@ async function makeChoice(chip, pr) {
     PCC = PCC.sort((a, b) => b.price - a.price);
     PS = PS.sort((a, b) => b.price - a.price);
     St = cool.sort((a, b) => b.price - a.price);
-
     if (chip === "AMD") {
         const CUrl = "/getCPUbyCompany?company=AMD"
         let CPU = await (await fetch(CUrl)).json();
@@ -163,7 +152,6 @@ function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
         if (i < St.length) {
             result.st = St[i];
         }
-
         if ((parseInt(result.cpu.price) + parseInt(result.cool.price) + parseInt(result.GPU.price) + parseInt(result.mem.price) + parseInt(result.mo.price) + parseInt(result.pcc.price) + parseInt(result.ps.price) + parseInt(result.st.price)) < pr) {
             return result;
         }
