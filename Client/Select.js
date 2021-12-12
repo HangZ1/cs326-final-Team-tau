@@ -67,15 +67,16 @@ document.getElementById("Build").addEventListener('click',async () => {
         if(document.getElementById("Budget").value === "less than $1000"){
             pr = 1000;
         }
-        if(document.getElementById("Budget").value === "$1000-$1500(not available in office purpose)"){
+        if(document.getElementById("Budget").value === "1000 to 2000"){
             pr = 1500;
         }
-        if(document.getElementById("Budget").value === "$1500-$2000(not available in office purpose)"){
+        if(document.getElementById("Budget").value === "2000 to 3000"){
             pr = 2000;
         }
-        if(document.getElementById("Budget").value === "more than $3000(not available in office purpose"){
+        if(document.getElementById("Budget").value === "above 3000"){
             pr = 10000000;
         }
+
         let result = await makeChoice(chip,pr);
         console.log(result);
         lstorage.setItem("CPU", result.cpu.name);
@@ -118,6 +119,7 @@ async function makeChoice(chip, pr) {
     PCC = PCC.sort((a, b) => b.price - a.price);
     PS = PS.sort((a, b) => b.price - a.price);
     St = cool.sort((a, b) => b.price - a.price);
+
     if (chip === "AMD") {
         const CUrl = "/getCPUbyCompany?company=AMD"
         let CPU = await (await fetch(CUrl)).json();
@@ -161,6 +163,7 @@ function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
         if (i < St.length) {
             result.st = St[i];
         }
+
         if ((parseInt(result.cpu.price) + parseInt(result.cool.price) + parseInt(result.GPU.price) + parseInt(result.mem.price) + parseInt(result.mo.price) + parseInt(result.pcc.price) + parseInt(result.ps.price) + parseInt(result.st.price)) < pr) {
             return result;
         }
