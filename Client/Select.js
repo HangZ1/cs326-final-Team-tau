@@ -40,8 +40,6 @@ document.getElementById("Build").addEventListener('click',() => {
         } else {
             window.location.href = 'Output_page.html';
         }
-    } else {
-        window.location.href = 'Output_page.html';
     }
     if (document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "Intel") {
         lstorage.setItem("CPU", "i3-10100");
@@ -62,6 +60,9 @@ document.getElementById("Build").addEventListener('click',() => {
         lstorage.setItem("pcCase", "NZXT H510 - CA-H510B-W1 - Compact ATX Mid-Tower PC Gaming Case");
         lstorage.setItem("powerSupply","EVGA SuperNOVA 550 G3, 80 Plus Gold 550W");
         lstorage.setItem("Storage","Kingston 240GB A400 SATA 3 2.5 Internal SSD SA400S37/240G");
+    }
+    else {
+        window.location.href = 'Output_page.html';
     }
 
     // window.location.href = 'Output_page.html';
