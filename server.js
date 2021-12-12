@@ -139,6 +139,12 @@ app.get('/getAllMotherBoard', async(req,res) => {
     let m = await mo.find().toArray();
     res.send(m);
 });
+app.get('/getMotherBoardbyCompany', async(req,res) => {
+    let company = req.query.company;
+    const mb = await client.db("PCComponentData").collection("MotherBoard");
+    let getMb= await mb.find({"company":company}).toArray();
+    res.send(getMb);
+});
 
 app.get('/getAllPCCase', async(req,res) => {
     const Pcc = await client.db("PCComponentData").collection("Pc Case");
