@@ -85,7 +85,9 @@ Yuchen Liu is responsible for sign-up page and shopping cart page.
 
 #### For the back end: 
 Guanxu Zhou is responsible for  /Login, /addShoppingCart, and api that get each component
+
 Hang Zheng is responsible for /addShoppingCart, and all the update and delete api
+
 Yuchen Liu is responsible for /register and /getShoppingCart, and api that add each component
 
 #### For the final submission:
