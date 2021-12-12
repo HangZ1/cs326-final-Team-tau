@@ -24,33 +24,30 @@ document.getElementById("plans").addEventListener('click',() => {
 
 document.getElementById("Build").addEventListener('click',() => {
     var e = document.getElementById("Budget");
-    var value =e.options[e.selectedIndex].value;
-    var a= document.getElementById("chip");
-    var avalue =a.options[a.selectedIndex].value;
-    if(document.getElementById("Purpose").value === "Office" ){
-        if((value !== "less than $1000")){
+    var value = e.options[e.selectedIndex].value;
+    var a = document.getElementById("chip");
+    var avalue = a.options[a.selectedIndex].value;
+    if (document.getElementById("Purpose").value === "Office") {
+        if ((value !== "less than $1000")) {
             alert("Office purpose is not available in this budget");
-        }
-        else{
+        } else {
             window.location.href = 'Output_page.html';
         }
-    }
-    else if(avalue === "AMD" && document.getElementById("Purpose").value === "Gaming" ){
-        if(value === "less than $1000"){
+    } else if (avalue === "AMD" && document.getElementById("Purpose").value === "Gaming") {
+        if (value === "less than $1000") {
             alert("Due to the high price of AMD cpu, Gaming under $1000 with AMD platform is not valid");
-        }
-        else{
+        } else {
             window.location.href = 'Output_page.html';
         }
-    }
-    else{
+    } else {
         window.location.href = 'Output_page.html';
     }
-    if(document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "Intel"){
+    if (document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "Intel") {
 
     }
 
     // window.location.href = 'Output_page.html';
+});
 
 
 
