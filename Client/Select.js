@@ -51,7 +51,82 @@ document.getElementById("Build").addEventListener('click',() => {
     }
 
     // window.location.href = 'Output_page.html';
-});
+
+
+
+async function makeChoice(chip, pr) {
+    let result = {};
+    const coolerUrl = "/getAllcooler";
+    const GPUUrl = "/getAllGPU";
+    const MEMUrl = "/getAllMEM";
+    const MotherBoardUrl = "/getAllMotherBoard";
+    const PCCaseUrl = "/getAllPCCase";
+    const PSUrl = "/getAllPS";
+    const StorageUrl = "/getAllStorage";
+
+    let cool = await (await fetch(coolerUrl)).json();
+    let GPU = await (await fetch(GPUUrl)).json();
+    let MEM = await (await fetch(MEMUrl)).json();
+    let Mo = await (await fetch(MotherBoardUrl)).json();
+    let PCC = await (await fetch(PCCaseUrl)).json();
+    let PS = await (await fetch(PSUrl)).json();
+    let St = await (await fetch(StorageUrl)).json();
+
+    cool = cool.sort((a, b) => b.price - a.price);
+    GPU = GPU.sort((a, b) => b.price - a.price);
+    MEM = MEM.sort((a, b) => b.price - a.price);
+    Mo = Mo.sort((a, b) => b.price - a.price);
+    PCC = PCC.sort((a, b) => b.price - a.price);
+    PS = PS.sort((a, b) => b.price - a.price);
+    St = cool.sort((a, b) => b.price - a.price);
+    if (chip === "AMD") {
+        const CUrl = "/getCPUbyCompany?company=AMD"
+        let CPU = await (await fetch(CUrl)).json();
+        CPU = CPU.sort((a, b) => b.price - a.price);
+        return helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr);
+    }
+    else if (chip === "INTEL") {
+        const CUrl = "/getCPUbyCompany?company=INTEL"
+        let CPU = await (await fetch(CUrl)).json();
+        CPU = CPU.sort((a, b) => b.price - a.price);
+        return helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr);
+    }
+
+}
+
+function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
+    let result = {};
+    for (let i = 0; i < MEM.length; i++) {
+        if (i < CPU.length) {
+            result.cpu = CPU[i];
+        }
+        if (i < cool.length) {
+            result.cool = cool[i];
+        }
+        if (i < GPU.length) {
+            result.GPU = GPU[i];
+        }
+        if (i < MEM.length) {
+            result.mem = MEM[i];
+        }
+        if (i < Mo.length) {
+            result.mo = Mo[i];
+        }
+        if (i < PCC.length) {
+            result.pcc = PCC[i];
+        }
+        if (i < PS.length) {
+            result.ps = PS[i];
+        }
+        if (i < St.length) {
+            result.st = St[i];
+        }
+        if ((CPU[i].price + cool[i].price + GPU[i].price + MEM[i].price + Mo[i].price + PCC[i].price + PS[i].price + St[i].price) < pr) {
+            return result;
+        }
+    }
+}
+
 
 
 
