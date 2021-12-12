@@ -11,7 +11,7 @@ PC Building Helper
 Fall 2021
 
 ## Overview:
-
+Our app will provide a algorith that will return a list of PC component based on the user's preference, which will be collected on the select page, the user can then add those returned componenet to their shopping cart, and manage their shopping cart by deleting component they don't want anymore. Our application is innovative because our application  will provide some tips on our recommendation
 
 ## Team Members:
 Guanxu Zhou(MikaIcarus), Hang Zheng(HangZ1), Yuchen Liu(3TH4NL)
@@ -61,7 +61,7 @@ ID&password: This is the database contain all the user id and password pair, a d
 CPU, Cpu Cooler, GPU, Memory, MotherBoard, Pc Case, Power Supply, Storage: This is the data base containing all the user's shopping cart
 
 ## URL Routes/Mappings:
-https://team-tau.herokuapp.com/： This is the homepage of the app. This page is accessible to everyone
+https://team-tau.herokuapp.com/ This is the homepage of the app. This page is accessible to everyone
 
 https://team-tau.herokuapp.com/Signin_page.html: This is the sign in page, the user can use this page to sign in to their accound. This page is accessible to everyone
 
@@ -85,7 +85,9 @@ Yuchen Liu is responsible for sign-up page and shopping cart page.
 
 #### For the back end: 
 Guanxu Zhou is responsible for  /Login, /addShoppingCart, and api that get each component
+
 Hang Zheng is responsible for /addShoppingCart, and all the update and delete api
+
 Yuchen Liu is responsible for /register and /getShoppingCart, and api that add each component
 
 #### For the final submission:
@@ -93,6 +95,8 @@ Guanxu Zhou and Yuchen liu will be recording the video because Hang Zheng have i
 
 ## Conclusion:
 Hang: personally I learned alot thourght out the project, it help me better understand the content of the lecture by using them to make a the real world application.
+Yuchen: I think HTML part especially bootstrap is interesting for me, that give me chance to make my own beautiful web. 
+Guanxu: The thing I learn here is that if I build the website based on a developer's mind , the user would get confused on it.
 
 
 # Rubric 
