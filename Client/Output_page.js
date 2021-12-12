@@ -68,6 +68,9 @@ document.getElementById('A_cpu').addEventListener("click", async() => {
         })
     });
 });
+document.getElementById('helper').addEventListener('click',() => {
+    window.location.href = 'Homepage.html';
+});
 
 document.getElementById('A_cooler').addEventListener("click", async() => {
     const response = await fetch('/addUsercooler', {
