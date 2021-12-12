@@ -23,7 +23,7 @@ document.getElementById("plans").addEventListener('click',() => {
     window.location.href = 'ShoppingCart.html';
 });
 
-document.getElementById("Build").addEventListener('click',() => {
+document.getElementById("Build").addEventListener('click',async () => {
     var e = document.getElementById("Budget");
     var value = e.options[e.selectedIndex].value;
     var a = document.getElementById("chip");
@@ -61,17 +61,40 @@ document.getElementById("Build").addEventListener('click',() => {
         lstorage.setItem("powerSupply","EVGA SuperNOVA 550 G3, 80 Plus Gold 550W");
         lstorage.setItem("Storage","Kingston 240GB A400 SATA 3 2.5 Internal SSD SA400S37/240G");
     }
-    else {
-        window.location.href = 'Output_page.html';
+    else{
+        let pr = -1;
+        let chip = document.getElementById("chip").value;
+        if(document.getElementById("Budget").value === "less than $1000"){
+            pr = 1000;
+        }
+        if(document.getElementById("Budget").value === "$1000-$1500(not available in office purpose)"){
+            pr = 1500;
+        }
+        if(document.getElementById("Budget").value === "$1500-$2000(not available in office purpose)"){
+            pr = 2000;
+        }
+        if(document.getElementById("Budget").value === "more than $3000(not available in office purpose"){
+            pr = 10000000;
+        }
+        let result = await makeChoice(chip,pr);
+        console.log(result);
+        lstorage.setItem("CPU", result.cpu.name);
+        lstorage.setItem("cooler", result.cool.name);
+        lstorage.setItem("GPU", result.GPU.GPU);
+        lstorage.setItem("memory", result.mem.name);
+        lstorage.setItem("motherboard" , result.mo.name);
+        lstorage.setItem("pcCase", result.pcc.name);
+        lstorage.setItem("powerSupply",result.ps.name);
+        lstorage.setItem("Storage",result.st.name);
     }
-
-    // window.location.href = 'Output_page.html';
+    window.location.href = 'Output_page.html';
 });
 
 
 
+
 async function makeChoice(chip, pr) {
-    let result = {};
+
     const coolerUrl = "/getAllcooler";
     const GPUUrl = "/getAllGPU";
     const MEMUrl = "/getAllMEM";
@@ -105,14 +128,15 @@ async function makeChoice(chip, pr) {
         const CUrl = "/getCPUbyCompany?company=INTEL"
         let CPU = await (await fetch(CUrl)).json();
         CPU = CPU.sort((a, b) => b.price - a.price);
-        return helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr);
-    }
 
+        return helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr);
+
+    }
 }
 
 function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
     let result = {};
-    for (let i = 0; i < MEM.length; i++) {
+    for (let i = 0; i < 10; i++) {
         if (i < CPU.length) {
             result.cpu = CPU[i];
         }
@@ -137,11 +161,14 @@ function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
         if (i < St.length) {
             result.st = St[i];
         }
-        if ((CPU[i].price + cool[i].price + GPU[i].price + MEM[i].price + Mo[i].price + PCC[i].price + PS[i].price + St[i].price) < pr) {
+        if ((parseInt(result.cpu.price) + parseInt(result.cool.price) + parseInt(result.GPU.price) + parseInt(result.mem.price) + parseInt(result.mo.price) + parseInt(result.pcc.price) + parseInt(result.ps.price) + parseInt(result.st.price)) < pr) {
             return result;
         }
+
     }
 }
+
+
 
 
 
