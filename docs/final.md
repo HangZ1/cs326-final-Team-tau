@@ -61,7 +61,7 @@ ID&password: This is the database contain all the user id and password pair, a d
 CPU, Cpu Cooler, GPU, Memory, MotherBoard, Pc Case, Power Supply, Storage: This is the data base containing all the user's shopping cart
 
 ## URL Routes/Mappings:
-https://team-tau.herokuapp.com/： This is the homepage of the app. This page is accessible to everyone
+https://team-tau.herokuapp.com/ This is the homepage of the app. This page is accessible to everyone
 
 https://team-tau.herokuapp.com/Signin_page.html: This is the sign in page, the user can use this page to sign in to their accound. This page is accessible to everyone
 
