@@ -1,5 +1,5 @@
 const storage = window.sessionStorage
-
+const lstorage = window.localStorage
 
 async function push_cart(){
     const response = await fetch('/addShoppingCart', {
@@ -22,17 +22,46 @@ async function push_cart(){
 }
 
 window.addEventListener('load', () =>{
+
     if(storage.getItem('username')) {
-        document.getElementById("CPU").value = 'responseJSON.processor';
-        document.getElementById("cooler").value = 'responseJSON.motherBoard';
-        document.getElementById("GPU").value = 'responseJSON.graphiccard';
-        document.getElementById("memory").value = 'responseJSON.memory';
-        document.getElementById("motherboard").value = 'responseJSON.storage';
-        document.getElementById("pcCase").value = 'responseJSON.pccase';
-        document.getElementById("powerSupply").value = 'responseJSON.powersupply';
-        document.getElementById("Storage").value = 'responseJSON.cpucooler';
+        if(lstorage.getItem("CPU")){
+            document.getElementById("CPU").value = lstorage.getItem("CPU");
+            document.getElementById("cooler").value = lstorage.getItem("cooler");
+            document.getElementById("GPU").value = lstorage.getItem("GPU");
+            document.getElementById("memory").value = lstorage.getItem("memory");
+            document.getElementById("motherboard").value = lstorage.getItem("motherboard");
+            document.getElementById("pcCase").value = lstorage.getItem("pcCase");
+            document.getElementById("powerSupply").value = lstorage.getItem("powerSupply");
+            document.getElementById("Storage").value = lstorage.getItem("Storage");
+            lstorage.clear();
+        }
+        else{
+            document.getElementById("CPU").value = '';
+            document.getElementById("cooler").value = '';
+            document.getElementById("GPU").value = '';
+            document.getElementById("memory").value = '';
+            document.getElementById("motherboard").value = '';
+            document.getElementById("pcCase").value = '';
+            document.getElementById("powerSupply").value = '';
+            document.getElementById("Storage").value = '';
+        }
     }else{
         window.location.href='Signin_page.html';
+    }
+    if(document.getElementById("GPU").value !== "GTX1660" && document.getElementById("GPU").value !== "GTX1650SUPER" && document.getElementById("GPU").value !== "integrated video card" && document.getElementById("GPU").value !== "gt710"){
+        document.getElementById("tip").innerText += "Due to the influence of cryptocurrency, the price of mid-range and high-end gaming graphics cards is unreasonable and fluctuates significantly, and there are mining cards circulating in the market.\n";
+    }
+    if(document.getElementById("GPU").value !== "GTX1660" && document.getElementById("GPU").value !== "GTX1650SUPER" && document.getElementById("GPU").value !== "integrated video card"&& document.getElementById("GPU").value !== "gt710"){
+        document.getElementById("tip").innerText += "For a better gaming experience, we recommend that you use a monitor with at least 1080p and a 144hz refresh rate. \n";
+    }
+    if(document.getElementById("Storage").value === "SAMSUNG 970 EVO Plus SSD 2TB - M.2 NVMe"){
+        document.getElementById("tip").innerText += "If you don't have high-capacity storage needs, we suggest you choose SAMSUNG 970 EVO Plus SSD 1TB - M.2 NVMe which has better Cost-effectiveness\n";
+    }
+    if((document.getElementById("GPU").value === "RTX3080" ||document.getElementById("GPU").value === "RTX3090") && (document.getElementById("powerSupply").value !== "ASUS ROG STRIX 1000W Gold PSU, Power Supply")){
+        document.getElementById("tip").innerText += "In view of the high power consumption of this graphics card, if you want to give full play to the performance of the graphics card such as overclocking graphics cards, we recommend that you use ASUS ROG STRIX 1000W Gold PSU.\n";
+    }
+    if(document.getElementById("GPU").value === "integrated video card" && document.getElementById("GPU").value !== "gt710"){
+        document.getElementById("tip").innerText += "If you want to play some video games with this set or have light game performance, we suggest you use GTX1650SUPER at least instead\n";
     }
 });
 
@@ -162,19 +191,5 @@ document.getElementById('A_stor').addEventListener("click", async() => {
         })
     });
 });
-let tipString = '';
-if(document.getElementById("GPU").value !== "GTX1660" && document.getElementById("GPU").value !== "GTX1650SUPER" && document.getElementById("GPU").value !== "integrated video card"){
-    document.getElementById("tip").innerText += "Due to the influence of cryptocurrency, the price of mid-range and high-end gaming graphics cards is unreasonable and fluctuates significantly, and there are mining cards circulating in the market.\n";
-}
-if(document.getElementById("GPU").value !== "GTX1660" && document.getElementById("GPU").value !== "GTX1650SUPER" && document.getElementById("GPU").value !== "integrated video card"){
-    document.getElementById("tip").innerText += "For a better gaming experience, we recommend that you use a monitor with at least 1080p and a 144hz refresh rate. \n";
-}
-if(document.getElementById("Storage").value === "SAMSUNG 970 EVO Plus SSD 2TB - M.2 NVMe"){
-    document.getElementById("tip").innerText += "If you don't have high-capacity storage needs, we suggest you choose SAMSUNG 970 EVO Plus SSD 1TB - M.2 NVMe which has better Cost-effectiveness\n";
-}
-if((document.getElementById("GPU").value === "RTX3080" ||document.getElementById("GPU").value === "RTX3090") && (document.getElementById("powerSupply").value !== "ASUS ROG STRIX 1000W Gold PSU, Power Supply")){
-    document.getElementById("tip").innerText += "In view of the high power consumption of this graphics card, if you want to give full play to the performance of the graphics card such as overclocking graphics cards, we recommend that you use ASUS ROG STRIX 1000W Gold PSU.\n";
-}
-if(document.getElementById("GPU").value === "integrated video card"){
-    document.getElementById("tip").innerText += "If you want to play some video games with this set or have light game performance, we suggest you use GTX1650SUPER at least instead\n";
-}
+
+

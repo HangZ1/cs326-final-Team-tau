@@ -1,4 +1,5 @@
 const storage = window.sessionStorage
+const lstorage = window.localStorage
 
 window.addEventListener('load', ()=>{
     if(!storage.getItem('username')){
@@ -43,7 +44,24 @@ document.getElementById("Build").addEventListener('click',() => {
         window.location.href = 'Output_page.html';
     }
     if (document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "Intel") {
-
+        lstorage.setItem("CPU", "i3-10100");
+        lstorage.setItem("cooler", "CPU its own fans");
+        lstorage.setItem("GPU", "integrated video card");
+        lstorage.setItem("memory", "PNY Performance 8GB DDR4 2666MHz");
+        lstorage.setItem("motherboard" , "MSI H510M-A PRO ProSeries Motherboard");
+        lstorage.setItem("pcCase", "NZXT H510 - CA-H510B-W1 - Compact ATX Mid-Tower PC Gaming Case");
+        lstorage.setItem("powerSupply","EVGA SuperNOVA 550 G3, 80 Plus Gold 550W");
+        lstorage.setItem("Storage","Kingston 240GB A400 SATA 3 2.5 Internal SSD SA400S37/240G");
+    }
+    if (document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "AMD") {
+        lstorage.setItem("CPU", "5600X");
+        lstorage.setItem("cooler", "Thermaltake UX100 5V");
+        lstorage.setItem("GPU", "gt710");
+        lstorage.setItem("memory", "PNY Performance 8GB DDR4 2666MHz");
+        lstorage.setItem("motherboard" , "MSI B550M PRO ProSeries Motherboard");
+        lstorage.setItem("pcCase", "NZXT H510 - CA-H510B-W1 - Compact ATX Mid-Tower PC Gaming Case");
+        lstorage.setItem("powerSupply","EVGA SuperNOVA 550 G3, 80 Plus Gold 550W");
+        lstorage.setItem("Storage","Kingston 240GB A400 SATA 3 2.5 Internal SSD SA400S37/240G");
     }
 
     // window.location.href = 'Output_page.html';
