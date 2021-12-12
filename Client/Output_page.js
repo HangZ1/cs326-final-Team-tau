@@ -159,3 +159,19 @@ document.getElementById('A_stor').addEventListener("click", async() => {
         })
     });
 });
+let tipString = '';
+if(document.getElementById("GPU").value !== "GTX1660" && document.getElementById("GPU").value !== "GTX1650SUPER" && document.getElementById("GPU").value !== "integrated video card"){
+    document.getElementById("tip").innerText += "Due to the influence of cryptocurrency, the price of mid-range and high-end gaming graphics cards is unreasonable and fluctuates significantly, and there are mining cards circulating in the market.\n";
+}
+if(document.getElementById("GPU").value !== "GTX1660" && document.getElementById("GPU").value !== "GTX1650SUPER" && document.getElementById("GPU").value !== "integrated video card"){
+    document.getElementById("tip").innerText += "For a better gaming experience, we recommend that you use a monitor with at least 1080p and a 144hz refresh rate. \n";
+}
+if(document.getElementById("Storage").value === "SAMSUNG 970 EVO Plus SSD 2TB - M.2 NVMe"){
+    document.getElementById("tip").innerText += "If you don't have high-capacity storage needs, we suggest you choose SAMSUNG 970 EVO Plus SSD 1TB - M.2 NVMe which has better Cost-effectiveness\n";
+}
+if((document.getElementById("GPU").value === "RTX3080" ||document.getElementById("GPU").value === "RTX3090") && (document.getElementById("powerSupply").value !== "ASUS ROG STRIX 1000W Gold PSU, Power Supply")){
+    document.getElementById("tip").innerText += "In view of the high power consumption of this graphics card, if you want to give full play to the performance of the graphics card such as overclocking graphics cards, we recommend that you use ASUS ROG STRIX 1000W Gold PSU.\n";
+}
+if(document.getElementById("GPU").value === "integrated video card"){
+    document.getElementById("tip").innerText += "If you want to play some video games with this set or have light game performance, we suggest you use GTX1650SUPER at least instead\n";
+}
