@@ -23,7 +23,7 @@ document.getElementById("plans").addEventListener('click',() => {
     window.location.href = 'ShoppingCart.html';
 });
 
-document.getElementById("Build").addEventListener('click',() => {
+document.getElementById("Build").addEventListener('click',async () => {
     var e = document.getElementById("Budget");
     var value = e.options[e.selectedIndex].value;
     var a = document.getElementById("chip");
@@ -40,8 +40,6 @@ document.getElementById("Build").addEventListener('click',() => {
         } else {
             window.location.href = 'Output_page.html';
         }
-    } else {
-        window.location.href = 'Output_page.html';
     }
     if (document.getElementById("Purpose").value === "Office" && value === "less than $1000" && document.getElementById("chip").value === "Intel") {
         lstorage.setItem("CPU", "i3-10100");
@@ -63,8 +61,33 @@ document.getElementById("Build").addEventListener('click',() => {
         lstorage.setItem("powerSupply","EVGA SuperNOVA 550 G3, 80 Plus Gold 550W");
         lstorage.setItem("Storage","Kingston 240GB A400 SATA 3 2.5 Internal SSD SA400S37/240G");
     }
-
-    // window.location.href = 'Output_page.html';
+    else{
+        let pr = -1;
+        let chip = document.getElementById("chip").value;
+        if(document.getElementById("Budget").value === "less than $1000"){
+            pr = 1000;
+        }
+        if(document.getElementById("Budget").value === "$1000-$1500(not available in office purpose)"){
+            pr = 1500;
+        }
+        if(document.getElementById("Budget").value === "$1500-$2000(not available in office purpose)"){
+            pr = 2000;
+        }
+        if(document.getElementById("Budget").value === "more than $3000(not available in office purpose"){
+            pr = 10000000;
+        }
+        let result = await makeChoice(chip,pr);
+        console.log(result);
+        lstorage.setItem("CPU", result.cpu.name);
+        lstorage.setItem("cooler", result.cool.name);
+        lstorage.setItem("GPU", result.GPU.GPU);
+        lstorage.setItem("memory", result.mem.name);
+        lstorage.setItem("motherboard" , result.mo.name);
+        lstorage.setItem("pcCase", result.pcc.name);
+        lstorage.setItem("powerSupply",result.ps.name);
+        lstorage.setItem("Storage",result.st.name);
+    }
+    window.location.href = 'Output_page.html';
 });
 
 
@@ -105,7 +128,7 @@ async function makeChoice(chip, pr) {
         const CUrl = "/getCPUbyCompany?company=INTEL"
         let CPU = await (await fetch(CUrl)).json();
         CPU = CPU.sort((a, b) => b.price - a.price);
-        console.log(GPU);
+
         return helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr);
 
     }
