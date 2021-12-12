@@ -123,7 +123,7 @@ app.get('/getAllcooler', async(req,res) => {
 
 app.get('/getAllGPU', async(req,res) => {
     const GPU = await client.db("PCComponentData").collection("GPU");
-    let g = await GPUr.find().toArray();
+    let g = await GPU.find().toArray();
     res.send(g);
 });
 

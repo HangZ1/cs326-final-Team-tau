@@ -69,8 +69,9 @@ document.getElementById("Build").addEventListener('click',() => {
 
 
 
+
 async function makeChoice(chip, pr) {
-    let result = {};
+
     const coolerUrl = "/getAllcooler";
     const GPUUrl = "/getAllGPU";
     const MEMUrl = "/getAllMEM";
@@ -104,14 +105,15 @@ async function makeChoice(chip, pr) {
         const CUrl = "/getCPUbyCompany?company=INTEL"
         let CPU = await (await fetch(CUrl)).json();
         CPU = CPU.sort((a, b) => b.price - a.price);
+        console.log(GPU);
         return helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr);
-    }
 
+    }
 }
 
 function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
     let result = {};
-    for (let i = 0; i < MEM.length; i++) {
+    for (let i = 0; i < 10; i++) {
         if (i < CPU.length) {
             result.cpu = CPU[i];
         }
@@ -136,11 +138,14 @@ function helper(CPU,cool,GPU,MEM,Mo,PCC,PS,St,pr) {
         if (i < St.length) {
             result.st = St[i];
         }
-        if ((CPU[i].price + cool[i].price + GPU[i].price + MEM[i].price + Mo[i].price + PCC[i].price + PS[i].price + St[i].price) < pr) {
+        if ((parseInt(result.cpu.price) + parseInt(result.cool.price) + parseInt(result.GPU.price) + parseInt(result.mem.price) + parseInt(result.mo.price) + parseInt(result.pcc.price) + parseInt(result.ps.price) + parseInt(result.st.price)) < pr) {
             return result;
         }
+
     }
 }
+
+
 
 
 
